@@ -17,9 +17,19 @@
     document.body.classList.add('nav-open');
   };
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav--scrolled', window.scrollY > 20);
-  });
+  let navScrollTicking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (navScrollTicking) return;
+      navScrollTicking = true;
+      requestAnimationFrame(() => {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 20);
+        navScrollTicking = false;
+      });
+    },
+    { passive: true }
+  );
 
   navToggle.addEventListener('click', () => {
     const isOpen = navMenu.classList.contains('nav__menu--open');
