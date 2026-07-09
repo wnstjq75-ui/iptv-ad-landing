@@ -50,8 +50,8 @@
       <!-- Main copy — above the image -->
       <div class="hero__top">
         <p class="hero__eyebrow">AI TV CF · SHOWCASE</p>
-        <h1 class="hero__title">월 100만원부터, TV광고를 시작하세요</h1>
-        <p class="hero__desc">AI TV CF 제작부터 IPTV 송출, 완전시청 리포트까지 한 번에</p>
+        <h1 class="hero__title">월 100만원부터,<br class="br-mobile"> TV광고를 시작하세요</h1>
+        <p class="hero__desc">AI TV CF 제작부터 IPTV 송출,<br class="br-mobile"> 완전시청 리포트까지 한 번에</p>
       </div>
 
       <!-- Stage: left HUD | prev | frame | next | right meta (all text outside image) -->
@@ -75,10 +75,6 @@
           </div>
         </aside>
 
-        <button type="button" class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="이전 예시 영상">
-          <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-
         <div
           class="hero__frame"
           id="heroMedia"
@@ -100,16 +96,19 @@
             <span class="hero__edge hero__edge--bottom"></span>
           </div>
 
+          <button type="button" class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="이전 예시 영상">
+            <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button type="button" class="hero__arrow hero__arrow--next" id="heroNext" aria-label="다음 예시 영상">
+            <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+
           <a class="hero__play" id="heroPlay" href="https://www.youtube.com/watch?v=mi_ikAotG3c" target="_blank" rel="noopener noreferrer" aria-label="예시 영상 YouTube에서 보기">
             <span class="hero__play-circle" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
             </span>
           </a>
         </div>
-
-        <button type="button" class="hero__arrow hero__arrow--next" id="heroNext" aria-label="다음 예시 영상">
-          <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
 
         <aside class="hero__hud hero__hud--right" aria-live="polite">
           <p class="hero__media-category" id="heroMediaCategory">브랜드광고</p>
@@ -228,8 +227,8 @@
     <div class="container">
       <div class="solution__intro reveal">
         <span class="badge">솔루션</span>
-        <h2 class="section__title">기존 TV광고의 장벽을 허물었습니다</h2>
-        <p class="section__subtitle">AI + IPTV로 제작비·타겟·운영을 다시 설계했습니다</p>
+        <h2 class="section__title">기존 TV광고의 장벽을<br class="br-mobile"> 허물었습니다</h2>
+        <p class="section__subtitle">AI + IPTV로 제작비·타겟·운영을<br class="br-mobile"> 다시 설계했습니다</p>
         <p class="section__desc">기술의 발전과 데이터 기반 기획·송출의 결합으로 이제 중소기업도 합리적인 비용으로 TV광고를 시작할 수 있습니다.</p>
       </div>
       <div class="compare reveal">
@@ -274,7 +273,7 @@
     <div class="container">
       <div class="section__header reveal">
         <span class="badge">IPTV 선택 이유</span>
-        <h2 class="section__title section__title--center">왜 광고주들은 다시 TV로 돌아오는가</h2>
+        <h2 class="section__title section__title--center">왜 광고주들은<br class="br-mobile"> 다시 TV로 돌아오는가</h2>
         <p class="section__desc section__desc--center">브랜드가 보이는 곳이 아니라, 믿을 수 있는 곳에서 기억됩니다</p>
       </div>
       <div class="why__benefits reveal">
@@ -937,7 +936,7 @@
       </div>
 
       <div class="portfolio-carousel reveal" role="region" aria-roledescription="carousel" aria-label="AI TV CF 포트폴리오 캐러셀">
-        <button type="button" class="portfolio-carousel__arrow" id="portfolioPrev" aria-label="이전 포트폴리오 영상">
+        <button type="button" class="portfolio-carousel__arrow portfolio-carousel__arrow--prev" id="portfolioPrev" aria-label="이전 포트폴리오 영상">
           <svg class="portfolio-carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
 
@@ -947,7 +946,7 @@
           </div>
         </div>
 
-        <button type="button" class="portfolio-carousel__arrow" id="portfolioNext" aria-label="다음 포트폴리오 영상">
+        <button type="button" class="portfolio-carousel__arrow portfolio-carousel__arrow--next" id="portfolioNext" aria-label="다음 포트폴리오 영상">
           <svg class="portfolio-carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
