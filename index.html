@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPTV AD PROPOSAL 2026 | AI TV CF · IPTV 광고 솔루션</title>
+  <meta name="description" content="중소기업도 이제 TV광고를 시작할 수 있습니다. AI TV CF 제작부터 IPTV 송출, 결과 리포트까지 원스톱 솔루션.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-mark">IPTV</span>
+        <span class="nav__logo-text">AD PROPOSAL</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about">IPTV 광고</a></li>
+        <li><a href="#solution">솔루션</a></li>
+        <li><a href="#product">상품 구조</a></li>
+        <li><a href="#targeting">타겟팅</a></li>
+        <li><a href="#showcase">예시보기</a></li>
+        <li><a href="#pricing">패키지</a></li>
+        <li><a href="#contact" class="nav__cta">상담 문의</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero: showcase frame + copy/HUD outside the media -->
+  <header class="hero hero--premium" id="hero">
+    <!-- Ambient background layers (decorative) -->
+    <div class="hero__ambiance" aria-hidden="true">
+      <span class="hero__orb hero__orb--a"></span>
+      <span class="hero__orb hero__orb--b"></span>
+      <span class="hero__orb hero__orb--c"></span>
+      <span class="hero__beam"></span>
+      <span class="hero__ring"></span>
+      <span class="hero__grid"></span>
+      <span class="hero__sheen"></span>
+      <span class="hero__noise"></span>
+      <span class="hero__vignette"></span>
+    </div>
+    <div class="hero__layout">
+      <!-- Main copy — above the image -->
+      <div class="hero__top">
+        <p class="hero__eyebrow">AI TV CF · SHOWCASE</p>
+        <h1 class="hero__title">월 100만원부터, TV광고를 시작하세요</h1>
+        <p class="hero__desc">AI TV CF 제작부터 IPTV 송출, 완전시청 리포트까지 한 번에</p>
+      </div>
+
+      <!-- Stage: left HUD | prev | frame | next | right meta (all text outside image) -->
+      <div class="hero__stage">
+        <aside class="hero__hud hero__hud--left" aria-label="패키지 핵심 정보">
+          <div class="hero__hud-line">
+            <span class="hero__hud-k">월 IPTV 광고</span>
+            <span class="hero__hud-v">100만원~</span>
+          </div>
+          <div class="hero__hud-line">
+            <span class="hero__hud-k">AI TV CF 제작</span>
+            <span class="hero__hud-v">300만원 상당</span>
+          </div>
+          <div class="hero__hud-line">
+            <span class="hero__hud-k">송출 기준</span>
+            <span class="hero__hud-v">완전시청</span>
+          </div>
+          <div class="hero__hud-line">
+            <span class="hero__hud-k">리포트</span>
+            <span class="hero__hud-v">월간 제공</span>
+          </div>
+        </aside>
+
+        <button type="button" class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="이전 예시 영상">
+          <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+
+        <div
+          class="hero__frame"
+          id="heroMedia"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="AI TV CF 프리미엄 쇼케이스"
+        >
+          <div class="hero__visual" aria-hidden="true">
+            <img id="heroThumb" src="https://img.youtube.com/vi/mi_ikAotG3c/maxresdefault.jpg" alt="" width="1280" height="720">
+            <div class="hero__overlay"></div>
+          </div>
+
+          <div class="hero__chrome" aria-hidden="true">
+            <span class="hero__corner hero__corner--tl"></span>
+            <span class="hero__corner hero__corner--tr"></span>
+            <span class="hero__corner hero__corner--bl"></span>
+            <span class="hero__corner hero__corner--br"></span>
+            <span class="hero__edge hero__edge--top"></span>
+            <span class="hero__edge hero__edge--bottom"></span>
+          </div>
+
+          <a class="hero__play" id="heroPlay" href="https://www.youtube.com/watch?v=mi_ikAotG3c" target="_blank" rel="noopener noreferrer" aria-label="예시 영상 YouTube에서 보기">
+            <span class="hero__play-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <button type="button" class="hero__arrow hero__arrow--next" id="heroNext" aria-label="다음 예시 영상">
+          <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+
+        <aside class="hero__hud hero__hud--right" aria-live="polite">
+          <p class="hero__media-category" id="heroMediaCategory">브랜드광고</p>
+          <p class="hero__media-title" id="heroMediaTitle">병원동행서비스</p>
+          <p class="hero__media-desc" id="heroMediaDesc">신뢰감 있는 서비스 브랜딩 AI TV CF</p>
+          <p class="hero__hud-index"><span id="heroSlideIndex">01</span> / <span id="heroSlideTotal">13</span></p>
+        </aside>
+      </div>
+
+      <!-- CTAs below the stage -->
+      <div class="hero__bottom">
+        <div class="hero__actions">
+          <a href="#contact" class="hero__cta hero__cta--primary" data-cta="contact">상담 문의</a>
+          <a href="#pricing" class="hero__cta hero__cta--ghost" data-cta="pricing">패키지 보기</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About IPTV -->
+  <section class="section section--about" id="about">
+    <div class="container">
+      <div class="about__intro reveal">
+        <span class="badge">IPTV 광고 소개</span>
+        <h2 class="section__title">IPTV 광고란 무엇인가</h2>
+        <p class="section__subtitle">고객의 TV 화면에 우리 브랜드를 노출합니다</p>
+        <p class="section__desc">
+          IPTV 광고는 거실 TV 화면에 브랜드를 노출하는 광고입니다.
+          원하는 지역과 고객층에만 송출하고, 끝까지 본 시청만 광고비로 계산합니다.
+        </p>
+      </div>
+      <div class="about__cards reveal reveal--delay">
+        <div class="feature-card card--info">
+          <div class="feature-card__deco" aria-hidden="true"></div>
+          <div class="feature-card__head">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <span class="feature-card__index">01</span>
+          </div>
+          <h3>TV 시청 환경</h3>
+          <p>거실의 대형 화면에서 브랜드 메시지를 전달해 신뢰감을 형성합니다.</p>
+          <div class="card-chips">
+            <span>거실 1번 화면</span>
+            <span>대형 디스플레이</span>
+          </div>
+        </div>
+        <div class="feature-card feature-card--highlight card--info">
+          <div class="feature-card__deco" aria-hidden="true"></div>
+          <div class="feature-card__head">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 5 5-9"/></svg>
+            </div>
+            <span class="feature-card__index">02</span>
+          </div>
+          <h3>원하는 지역·고객층에만 송출</h3>
+          <p>지역, 채널, 관심사 조건으로 캠페인 목적에 맞게 설계합니다.</p>
+          <div class="card-chips">
+            <span>지역 타겟팅</span>
+            <span>고객층 세그먼트</span>
+          </div>
+        </div>
+        <div class="feature-card card--info">
+          <div class="feature-card__deco" aria-hidden="true"></div>
+          <div class="feature-card__head">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>
+            </div>
+            <span class="feature-card__index">03</span>
+          </div>
+          <h3>브랜드 인지 강화</h3>
+          <p>반복 노출을 통해 브랜드를 익숙하고 신뢰를 높은 이미지로 각인시킵니다.</p>
+          <div class="card-chips">
+            <span>반복 노출</span>
+            <span>브랜드 각인</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats reveal">
+      <div class="stat">
+        <div class="stat__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="stat__content">
+          <span class="stat__value">3,200만+</span>
+          <strong>전국 커버리지</strong>
+          <span>가입 가구 기준</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="stat__content">
+          <span class="stat__value">100+</span>
+          <strong>송출 가능 채널</strong>
+          <span>tvN · JTBC · YTN 등</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div class="stat__content">
+          <span class="stat__value">TV + Data</span>
+          <strong>하이브리드 운영</strong>
+          <span>시청 환경 × 데이터 솔루션</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section section--solution section--dark" id="solution">
+    <div class="container">
+      <div class="solution__intro reveal">
+        <span class="badge">솔루션</span>
+        <h2 class="section__title">기존 TV광고의 장벽을 허물었습니다</h2>
+        <p class="section__subtitle">AI + IPTV로 제작비·타겟·운영을 다시 설계했습니다</p>
+        <p class="section__desc">기술의 발전과 데이터 기반 기획·송출의 결합으로 이제 중소기업도 합리적인 비용으로 TV광고를 시작할 수 있습니다.</p>
+      </div>
+      <div class="compare reveal">
+        <div class="compare__card compare__card--before card--info">
+          <span class="compare__label">BEFORE</span>
+          <h3>기존 TV광고의 벽</h3>
+          <ul>
+            <li><span class="compare__num">01</span><div><strong>높은 영상 제작비 부담</strong><p>CF 촬영, 모델 섭외, 편집 등 초기 진입 비용이 높습니다.</p></div><span class="compare__icon compare__icon--x">✕</span></li>
+            <li><span class="compare__num">02</span><div><strong>불특정 다수 노출의 비효율</strong><p>원하는 고객이 아닌 사람들에게까지 광고가 노출되었습니다.</p></div><span class="compare__icon compare__icon--x">✕</span></li>
+            <li><span class="compare__num">03</span><div><strong>복잡하고 어려운 진입 장벽</strong><p>복잡한 절차, 심사 과정과 광고 집행의 어려움이 있었습니다.</p></div><span class="compare__icon compare__icon--x">✕</span></li>
+          </ul>
+        </div>
+        <div class="compare__arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <div class="compare__card compare__card--after card--emphasis">
+          <span class="compare__label">AFTER</span>
+          <h3>이제는 가능한 TV광고</h3>
+          <ul>
+            <li><span class="compare__num">01</span><div><strong>AI 기반 제작비 혁신</strong><p>AI 영상 기술 도입으로 고품질 CF 제작을 저렴하게 진행합니다.</p></div><span class="compare__icon compare__icon--check">✓</span></li>
+            <li><span class="compare__num">02</span><div><strong>IPTV 정밀 타게팅 솔루션</strong><p>지역, 채널, 관심사, 연령대 등 원하는 고객에게 맞춤 송출합니다.</p></div><span class="compare__icon compare__icon--check">✓</span></li>
+            <li><span class="compare__num">03</span><div><strong>중소기업 맞춤 통합 솔루션</strong><p>TV 광고, 언론보도, 결과 리포트까지 원스톱으로 운영합니다.</p></div><span class="compare__icon compare__icon--check">✓</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="solution__banner reveal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>
+        <span>제작부터 송출, 기사홍보, 결과 리포트까지 한 번에 운영합니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container cta-band__inner reveal">
+      <p class="cta-band__text">캠페인 목표에 맞는 패키지를 함께 설계해드립니다.</p>
+      <a href="#contact" class="btn btn--primary">상담 문의</a>
+    </div>
+  </div>
+
+  <!-- Why TV -->
+  <section class="section section--why" id="why">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="badge">IPTV 선택 이유</span>
+        <h2 class="section__title section__title--center">왜 광고주들은 다시 TV로 돌아오는가</h2>
+        <p class="section__desc section__desc--center">브랜드가 보이는 곳이 아니라, 믿을 수 있는 곳에서 기억됩니다</p>
+      </div>
+      <div class="why__benefits reveal">
+        <div class="why-card card--info">
+          <div class="why-card__ring">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>
+            </div>
+          </div>
+          <span class="why-card__label">Trust</span>
+          <h3>① 브랜드 신뢰감</h3>
+          <p>공신력 있는 방송 매체와 심의의 과정을 거친 안전한 광고 송출로 소비자에게도 압도적인 신뢰를 줍니다.</p>
+          <div class="why-card__metric">
+            <strong>방송 심의</strong>
+            <span>공신력 확보</span>
+          </div>
+        </div>
+        <div class="why-card card--info">
+          <div class="why-card__ring">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+            </div>
+          </div>
+          <span class="why-card__label">Reach</span>
+          <h3>② 반복 노출</h3>
+          <p>타깃 가구의 셋톱박스 데이터를 기반으로 한 지속적인 반복 송출로 브랜드 인지도를 확실히 각인시킵니다.</p>
+          <div class="why-card__metric">
+            <strong>반복 송출</strong>
+            <span>인지도 상승</span>
+          </div>
+        </div>
+        <div class="why-card card--info">
+          <div class="why-card__ring">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+          </div>
+          <span class="why-card__label">Premium</span>
+          <h3>③ TV 브랜딩 효과</h3>
+          <p>'우리 동네 TV에 나오는 브랜드'라는 확고한 프리미엄 이미지를 구축하여 경쟁사 대비 우위를 점합니다.</p>
+          <div class="why-card__metric">
+            <strong>TV 브랜딩</strong>
+            <span>프리미엄 이미지</span>
+          </div>
+        </div>
+      </div>
+      <div class="why__compare reveal">
+        <p class="why-compare__label">매체 비교</p>
+        <div class="why-compare">
+          <!-- Online performance — muted / weak side -->
+          <article class="why-compare__panel why-compare__panel--online">
+            <header class="why-compare__head">
+              <div class="why-compare__icon why-compare__icon--muted" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M2 10h20"/></svg>
+              </div>
+              <div class="why-compare__titles">
+                <span class="why-compare__badge why-compare__badge--muted">LIMITED</span>
+                <h3>온라인 퍼포먼스 광고</h3>
+                <p>클릭·전환 중심, 브랜드 자산 축적은 약함</p>
+              </div>
+            </header>
+            <ul class="why-compare__list">
+              <li class="why-compare__item why-compare__item--no">
+                <span class="why-compare__mark" aria-hidden="true">✕</span>
+                <div>
+                  <strong>브랜드 신뢰</strong>
+                  <span>플랫폼 의존, 공신력 약함</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--no">
+                <span class="why-compare__mark" aria-hidden="true">✕</span>
+                <div>
+                  <strong>브랜드 체감</strong>
+                  <span>스와이프 피드 속 일회성 노출</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--no">
+                <span class="why-compare__mark" aria-hidden="true">✕</span>
+                <div>
+                  <strong>노출 지속성</strong>
+                  <span>입찰 중단 시 즉시 소멸</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--no">
+                <span class="why-compare__mark" aria-hidden="true">✕</span>
+                <div>
+                  <strong>시청 환경</strong>
+                  <span>소형 화면, 분할 주의력</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <div class="why-compare__vs" aria-hidden="true">
+            <span>VS</span>
+          </div>
+
+          <!-- IPTV — premium advantage side -->
+          <article class="why-compare__panel why-compare__panel--iptv">
+            <div class="why-compare__glow" aria-hidden="true"></div>
+            <header class="why-compare__head">
+              <div class="why-compare__icon why-compare__icon--accent" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <div class="why-compare__titles">
+                <span class="why-compare__badge why-compare__badge--accent">ADVANTAGE</span>
+                <h3>IPTV 방송 광고</h3>
+                <p>거실 TV에서 쌓이는 신뢰와 프리미엄 브랜딩</p>
+              </div>
+            </header>
+            <ul class="why-compare__list">
+              <li class="why-compare__item why-compare__item--yes">
+                <span class="why-compare__mark" aria-hidden="true">✓</span>
+                <div>
+                  <strong>브랜드 신뢰</strong>
+                  <span>방송 심의 통과, 공신력 확보</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--yes">
+                <span class="why-compare__mark" aria-hidden="true">✓</span>
+                <div>
+                  <strong>브랜드 체감</strong>
+                  <span>“TV에 나오는 브랜드” 인식</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--yes">
+                <span class="why-compare__mark" aria-hidden="true">✓</span>
+                <div>
+                  <strong>노출 지속성</strong>
+                  <span>채널 전환·반복 송출로 각인</span>
+                </div>
+              </li>
+              <li class="why-compare__item why-compare__item--yes">
+                <span class="why-compare__mark" aria-hidden="true">✓</span>
+                <div>
+                  <strong>시청 환경</strong>
+                  <span>거실 대형 화면, 다인 시청</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product -->
+  <section class="section section--product section--product-system" id="product">
+    <div class="container">
+      <div class="product-system__intro reveal">
+        <span class="product-system__label">상품 구조 / 완전시청 기준 광고 시스템</span>
+        <p class="product-system__bridge">제작 → 송출 → 완전시청 과금 → 리포트가 하나의 패키지 흐름으로 연결됩니다</p>
+      </div>
+
+      <div class="product-system__grid">
+        <div class="product-system__flow reveal">
+          <div class="product-system__flow-head">
+            <span class="badge">패키지 구성</span>
+            <h2 class="section__title">TV 브랜딩을 시작·운영·증명까지 한 번에</h2>
+            <p class="section__desc">4단계 원스톱 운영 흐름</p>
+          </div>
+          <ol class="product-flow">
+            <li class="product-flow__step card--info">
+              <span class="product-flow__num" aria-hidden="true">01</span>
+              <div class="product-flow__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14M5 18h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg>
+              </div>
+              <div class="product-flow__body">
+                <div class="product-flow__top">
+                  <h4>AI TV CF 제작 지원</h4>
+                  <span class="product-flow__tag">무상</span>
+                </div>
+                <p>300만원 상당 영상 제작 지원</p>
+              </div>
+            </li>
+            <li class="product-flow__step card--info">
+              <span class="product-flow__num" aria-hidden="true">02</span>
+              <div class="product-flow__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+              </div>
+              <div class="product-flow__body">
+                <div class="product-flow__top">
+                  <h4>IPTV 맞춤 송출</h4>
+                  <span class="product-flow__tag">타겟</span>
+                </div>
+                <p>지역·채널·연령 타겟팅 노출</p>
+              </div>
+            </li>
+            <li class="product-flow__step card--info product-flow__step--core">
+              <span class="product-flow__num" aria-hidden="true">03</span>
+              <div class="product-flow__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <div class="product-flow__body">
+                <div class="product-flow__top">
+                  <h4>완전시청 기준 송출</h4>
+                  <span class="product-flow__tag product-flow__tag--core">핵심</span>
+                </div>
+                <p>15초 완주 시청만 과금</p>
+              </div>
+            </li>
+            <li class="product-flow__step card--info">
+              <span class="product-flow__num" aria-hidden="true">04</span>
+              <div class="product-flow__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 5 5-9"/></svg>
+              </div>
+              <div class="product-flow__body">
+                <div class="product-flow__top">
+                  <h4>송출 결과 리포트</h4>
+                  <span class="product-flow__tag">리포트</span>
+                </div>
+                <p>송출 1개월 후 데이터 리포트</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="product-system__viewing reveal reveal--delay">
+          <div class="viewing-panel card--emphasis">
+            <div class="viewing-panel__head">
+              <span class="badge badge--emphasis">완전시청 과금</span>
+              <h3 class="viewing-panel__title">끝까지 본 시청만<br>광고비로 계산합니다</h3>
+            </div>
+
+            <div class="viewing-panel__rule">
+              <div class="viewing-panel__rule-item viewing-panel__rule-item--yes">
+                <strong>15초 완주 = 1회 과금</strong>
+              </div>
+              <div class="viewing-panel__rule-item viewing-panel__rule-item--no">
+                <span>도중 이탈 시 광고비 미과금</span>
+              </div>
+            </div>
+
+            <div class="viewing-timeline-v2">
+              <div class="viewing-timeline-v2__header">
+                <span>15초 광고 시청 타임라인</span>
+                <em>완전시청 기준</em>
+              </div>
+              <div class="viewing-timeline-v2__track" aria-hidden="true">
+                <span class="viewing-timeline-v2__fill"></span>
+              </div>
+              <div class="viewing-timeline-v2__marks">
+                <span>0초</span>
+                <span>5초</span>
+                <span>10초</span>
+                <span class="is-end">15초 완료</span>
+              </div>
+              <div class="viewing-timeline-v2__legend">
+                <span><i class="is-bill">✓</i> 15초 완주 시 과금</span>
+                <span><i class="is-free">✕</i> 중간 이탈 시 미과금</span>
+              </div>
+            </div>
+
+            <div class="viewing-benefits viewing-benefits--v2">
+              <div class="viewing-benefit-v2 card--info">
+                <span class="viewing-benefit-v2__label">Benefit 01</span>
+                <strong>광고 낭비 최소화</strong>
+                <p>끝까지 본 시청만 과금해 불필요한 노출 비용을 줄입니다.</p>
+              </div>
+              <div class="viewing-benefit-v2 card--info">
+                <span class="viewing-benefit-v2__label">Benefit 02</span>
+                <strong>예산 효율 극대화</strong>
+                <p>실제 시청에만 예산이 집행되어 집행 효율이 높아집니다.</p>
+              </div>
+              <div class="viewing-benefit-v2 card--info">
+                <span class="viewing-benefit-v2__label">Benefit 03</span>
+                <strong>실효 노출 확보</strong>
+                <p>완전시청 데이터로 실질 도달 성과를 확인합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Targeting -->
+  <section class="section section--targeting" id="targeting">
+    <div class="container targeting__grid">
+      <div class="targeting__text reveal">
+        <span class="badge">타겟팅 기능</span>
+        <h2 class="section__title targeting__headline">원하는 고객에게만,<br>더 정확하게 송출합니다</h2>
+        <p class="section__desc targeting__lead">IPTV 광고는 지역, 채널, 시간, 시청 패턴 데이터를 바탕으로 캠페인 목적에 맞는 고객에게 정밀하게 송출할 수 있습니다.</p>
+        <ul class="targeting__points">
+          <li>
+            <span class="targeting__point-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <span>시·군·구 단위 정밀 송출</span>
+          </li>
+          <li>
+            <span class="targeting__point-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+            </span>
+            <span>채널·시간대 조건 설정</span>
+          </li>
+          <li>
+            <span class="targeting__point-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a3 3 0 0 1 0 5.74"/></svg>
+            </span>
+            <span>오디언스 기반 맞춤 노출</span>
+          </li>
+        </ul>
+        <p class="targeting__footer">조건을 세밀하게 설계할수록 광고 효율은 더 높아집니다.</p>
+      </div>
+      <div class="targeting__panel reveal reveal--delay" id="targetingPanel">
+        <div class="targeting-tabs" role="tablist" aria-label="타겟팅 기능">
+          <button class="targeting-tab targeting-tab--active" role="tab" aria-selected="true" data-tab="geo">지역 타겟팅</button>
+          <button class="targeting-tab" role="tab" aria-selected="false" data-tab="data">데이터 조건</button>
+          <button class="targeting-tab" role="tab" aria-selected="false" data-tab="pattern">시청 패턴</button>
+          <button class="targeting-tab" role="tab" aria-selected="false" data-tab="report">검증 및 리포트</button>
+        </div>
+
+        <!-- 지역 타겟팅 -->
+        <div class="targeting-content targeting-content--active" data-panel="geo" role="tabpanel">
+          <div class="targeting-visual targeting-geo" aria-hidden="true">
+            <div class="geo-console">
+              <div class="geo-console__bar">
+                <span class="geo-console__dot"></span>
+                <span class="geo-console__title">GEO TARGETING</span>
+                <span class="geo-console__live">LIVE</span>
+              </div>
+              <div class="geo-console__body">
+                <div class="geo-console__grid" aria-hidden="true">
+                  <span class="geo-cell"></span><span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span><span class="geo-cell"></span><span class="geo-cell"></span>
+                  <span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell geo-cell--hot"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span><span class="geo-cell"></span>
+                  <span class="geo-cell geo-cell--on"></span><span class="geo-cell geo-cell--hot"></span><span class="geo-cell geo-cell--core"></span><span class="geo-cell geo-cell--hot"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span>
+                  <span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell geo-cell--hot"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span>
+                  <span class="geo-cell"></span><span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span><span class="geo-cell geo-cell--on"></span><span class="geo-cell"></span>
+                </div>
+                <div class="geo-console__side">
+                  <div class="geo-console__stat">
+                    <em>선택 권역</em>
+                    <strong>4</strong>
+                  </div>
+                  <div class="geo-console__stat">
+                    <em>커버리지</em>
+                    <strong>92%</strong>
+                  </div>
+                  <ul class="geo-console__chips">
+                    <li>상권 중심지</li>
+                    <li>핵심 거점</li>
+                    <li>신규 상권</li>
+                    <li>거주 밀집</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="targeting-features">
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">01</span>
+              <div>
+                <strong>지역 Geo</strong>
+                <p>시·군·구 단위로 지역 타겟팅</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">02</span>
+              <div>
+                <strong>상권 매칭</strong>
+                <p>핵심 상권·거주 밀집 지역·신규 상권 후보 등 비즈니스 거점 중심 설계</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">03</span>
+              <div>
+                <strong>반경 확장</strong>
+                <p>매장·지점 기준 반경 단위로 송출 범위를 유연하게 조정</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">04</span>
+              <div>
+                <strong>다중 지역</strong>
+                <p>수도권·영남권·호남권 등 복수 권역 동시 타겟팅 가능</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 데이터 조건 -->
+        <div class="targeting-content" data-panel="data" role="tabpanel" hidden>
+          <div class="targeting-visual targeting-data">
+            <div class="targeting-data__filters">
+              <span class="targeting-data__filter targeting-data__filter--on">연령 30~49</span>
+              <span class="targeting-data__filter targeting-data__filter--on">여성</span>
+              <span class="targeting-data__filter">프리미엄 소비</span>
+              <span class="targeting-data__filter targeting-data__filter--on">뷰티·생활</span>
+            </div>
+            <div class="targeting-data__rows">
+              <div class="targeting-data__row">
+                <span>오디언스 규모</span>
+                <div class="targeting-data__bar"><span style="width:72%"></span></div>
+                <em>182K 가구</em>
+              </div>
+              <div class="targeting-data__row">
+                <span>관심 카테고리</span>
+                <div class="targeting-data__bar"><span style="width:58%"></span></div>
+                <em>뷰티 34%</em>
+              </div>
+              <div class="targeting-data__row">
+                <span>채널 적합도</span>
+                <div class="targeting-data__bar"><span style="width:84%"></span></div>
+                <em>드라마 CH</em>
+              </div>
+            </div>
+          </div>
+          <div class="targeting-features">
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">01</span>
+              <div>
+                <strong>연령·성별</strong>
+                <p>타겟 고객층의 연령대와 성별 조건을 세밀하게 설정</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">02</span>
+              <div>
+                <strong>관심사 Interest</strong>
+                <p>시청 이력 기반 라이프스타일 카테고리 매칭</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">03</span>
+              <div>
+                <strong>채널 Channel</strong>
+                <p>브랜드 특성과 시청자 콘텐츠 성향을 분석한 채널 매칭</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">04</span>
+              <div>
+                <strong>오디언스 규모</strong>
+                <p>설정 조건에 따른 예상 도달 가구 수를 사전 확인</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 시청 패턴 -->
+        <div class="targeting-content" data-panel="pattern" role="tabpanel" hidden>
+          <div class="targeting-visual targeting-pattern targeting-visual--pattern">
+            <div class="targeting-pattern__header">
+              <span class="targeting-pattern__title">프라임 타임 송출 예시</span>
+              <span class="targeting-pattern__range">18:00 ~ 02:00</span>
+            </div>
+            <div class="targeting-pattern__chart">
+              <div class="pattern-bar"><span class="pattern-bar__label">06시</span><div class="pattern-bar__track"><span style="height:20%"></span></div></div>
+              <div class="pattern-bar"><span class="pattern-bar__label">12시</span><div class="pattern-bar__track"><span style="height:45%"></span></div></div>
+              <div class="pattern-bar pattern-bar--peak"><span class="pattern-bar__label">18시</span><div class="pattern-bar__track"><span style="height:90%"></span></div></div>
+              <div class="pattern-bar pattern-bar--peak"><span class="pattern-bar__label">21시</span><div class="pattern-bar__track"><span style="height:100%"></span></div></div>
+              <div class="pattern-bar pattern-bar--peak"><span class="pattern-bar__label">00시</span><div class="pattern-bar__track"><span style="height:75%"></span></div></div>
+              <div class="pattern-bar"><span class="pattern-bar__label">03시</span><div class="pattern-bar__track"><span style="height:30%"></span></div></div>
+            </div>
+            <div class="targeting-pattern__legend">
+              <span class="targeting-pattern__dot"></span> 시청 집중 시간대
+            </div>
+          </div>
+          <div class="targeting-features">
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">01</span>
+              <div>
+                <strong>시간 Time</strong>
+                <p>8시간 이상 송출 구간 선택 (18:00 ~ 02:00 등 프라임 타임 집중)</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">02</span>
+              <div>
+                <strong>송출 시간대</strong>
+                <p>캠페인 목적에 맞는 시간대를 지정하여 집중 송출</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">03</span>
+              <div>
+                <strong>반복 노출</strong>
+                <p>타깃 가구 기준 지속적 반복 송출로 브랜드 인지도 강화</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">04</span>
+              <div>
+                <strong>시청 집중도</strong>
+                <p>시청자가 많은 프라임 타임에 맞춰 효율적인 노출 설계</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 검증 및 리포트 -->
+        <div class="targeting-content" data-panel="report" role="tabpanel" hidden>
+          <div class="targeting-visual targeting-visual--report">
+            <div class="targeting-report">
+              <div class="targeting-report__header">
+                <strong>월간 송출 결과 리포트</strong>
+                <span class="targeting-report__badge">송출 1개월 후 이메일 발송</span>
+              </div>
+              <div class="targeting-report__flow">
+                <div class="report-flow__step report-flow__step--done">
+                  <span class="report-flow__week">1~4주</span>
+                  <strong>IPTV 송출</strong>
+                  <em>광고 집행</em>
+                </div>
+                <div class="report-flow__arrow" aria-hidden="true">→</div>
+                <div class="report-flow__step report-flow__step--active">
+                  <span class="report-flow__week">1개월 후</span>
+                  <strong>리포트 발송</strong>
+                  <em>이메일 전달</em>
+                </div>
+              </div>
+              <div class="targeting-report__kpis">
+                <div class="targeting-report__kpi">
+                  <span>노출수</span>
+                  <strong>245.8K</strong>
+                </div>
+                <div class="targeting-report__kpi">
+                  <span>완전시청률</span>
+                  <strong>84.2%</strong>
+                </div>
+                <div class="targeting-report__kpi">
+                  <span>도달 가구</span>
+                  <strong>182.3K</strong>
+                </div>
+              </div>
+              <p class="targeting-report__caption">※ 예시 수치이며, 실제 리포트는 송출 1개월 후 제공됩니다.</p>
+            </div>
+          </div>
+          <div class="targeting-features targeting-features--report">
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">01</span>
+              <div>
+                <strong>완전시청 확인</strong>
+                <p>15초 광고를 끝까지 본 시청만 집계·과금 기준으로 반영</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">02</span>
+              <div>
+                <strong>지역·채널 분석</strong>
+                <p>지역별 송출 농도와 채널별 노출 TOP 데이터 포함</p>
+              </div>
+            </div>
+            <div class="targeting-feature">
+              <span class="targeting-feature__num">03</span>
+              <div>
+                <strong>광고비 정산 내역</strong>
+                <p>월간 노출·완전시청 기준 광고비 산출 내역을 투명하게 제공</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3열: 할증 카드 -->
+      <div class="surcharge reveal" id="surcharge">
+        <div class="surcharge__intro">
+          <h3 class="surcharge__intro-title">타겟팅 할증 기준</h3>
+          <p class="surcharge__intro-sub">선택한 타겟팅 옵션에 따라 송출 단가에 할증이 적용됩니다.</p>
+          <p class="surcharge__intro-sub">시간·채널·오디언스·지역 조건을 확인한 뒤 상담 시 참고해 주세요.</p>
+        </div>
+        <div class="surcharge__panel">
+          <div class="surcharge__header">
+            <div class="surcharge__filters" role="tablist" aria-label="할증 기준 필터">
+              <button type="button" class="surcharge__filter surcharge__filter--active" role="tab" aria-selected="true" data-surcharge-filter="time">시간</button>
+              <button type="button" class="surcharge__filter" role="tab" aria-selected="false" data-surcharge-filter="channel">채널</button>
+              <button type="button" class="surcharge__filter" role="tab" aria-selected="false" data-surcharge-filter="region">지역</button>
+              <button type="button" class="surcharge__filter" role="tab" aria-selected="false" data-surcharge-filter="audience">오디언스</button>
+            </div>
+          </div>
+
+          <div class="surcharge__table" role="table" aria-label="타겟팅 옵션별 할증율">
+            <div class="surcharge__thead" role="row">
+              <span role="columnheader">옵션</span>
+              <span role="columnheader">기준</span>
+              <span role="columnheader">할증율</span>
+            </div>
+            <div class="surcharge__row" role="row" data-surcharge-cat="time">
+              <span class="surcharge__option" role="cell">시간 선택형</span>
+              <span class="surcharge__criteria" role="cell">연속 8시간 이상 선택 송출</span>
+              <span class="surcharge__rate" role="cell">20%</span>
+            </div>
+            <div class="surcharge__row" role="row" data-surcharge-cat="channel">
+              <span class="surcharge__option" role="cell">채널 선택형</span>
+              <span class="surcharge__criteria" role="cell">7개 이상 채널 선택 송출</span>
+              <span class="surcharge__rate" role="cell">40%</span>
+            </div>
+            <div class="surcharge__row" role="row" data-surcharge-cat="audience">
+              <span class="surcharge__option" role="cell">오디언스 타겟팅</span>
+              <span class="surcharge__criteria" role="cell">시청 패턴 맞춤 세그먼트</span>
+              <span class="surcharge__rate" role="cell">20%</span>
+            </div>
+            <div class="surcharge__row surcharge__row--region" role="row" data-surcharge-cat="region">
+              <span class="surcharge__option" role="cell">지역 타겟팅</span>
+              <span class="surcharge__criteria" role="cell">지역 등급별 차등 적용</span>
+              <span class="surcharge__rate surcharge__rate--tiered" role="cell">등급별</span>
+            </div>
+          </div>
+
+          <div class="surcharge__grades" id="surchargeGrades">
+            <h4 class="surcharge__grades-title">지역 등급 기준</h4>
+            <ul class="surcharge__grades-list">
+              <li>
+                <span class="surcharge__grade-tag surcharge__grade-tag--s">S급</span>
+                <span class="surcharge__grade-areas">강남구, 송파구, 서초구</span>
+                <span class="surcharge__grade-rate">40%</span>
+              </li>
+              <li>
+                <span class="surcharge__grade-tag surcharge__grade-tag--a">A급</span>
+                <span class="surcharge__grade-areas">광진구, 분당구, 일산 서구·동구, 부산 해운대구, 대구 달서구, 화성시, 인천 연수구</span>
+                <span class="surcharge__grade-rate">30%</span>
+              </li>
+              <li>
+                <span class="surcharge__grade-tag surcharge__grade-tag--b">B급</span>
+                <span class="surcharge__grade-areas">강동구, 노원구, 천안시, 부천시, 광명시, 김포시, 수원 영통·장안·팔달구, 용인시</span>
+                <span class="surcharge__grade-rate">20%</span>
+              </li>
+              <li>
+                <span class="surcharge__grade-tag surcharge__grade-tag--c">C급</span>
+                <span class="surcharge__grade-areas">시·군·구 기준 A·B등급 제외 지역</span>
+                <span class="surcharge__grade-rate">0%</span>
+              </li>
+              <li>
+                <span class="surcharge__grade-tag surcharge__grade-tag--d">D급</span>
+                <span class="surcharge__grade-areas">서울특별시·도·광역시 단위만 선택 시</span>
+                <span class="surcharge__grade-rate">0%</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="surcharge__note">※ 실제 적용은 집행 조건에 따라 달라질 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container channels reveal">
+      <span class="channels__label">주요 송출 가능 채널 예시</span>
+      <div class="channels__list">
+        <span>tvN</span><span>JTBC</span><span>YTN</span><span>연합뉴스TV</span>
+        <span>SBS Plus</span><span>MBC every1</span><span>KBS Joy</span><span>OCN</span>
+        <span class="channels__more">외 100개 채널</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CF -->
+  <section class="section section--aicf section--dark" id="aicf">
+    <div class="container aicf__hero reveal">
+      <p class="aicf__eyebrow">패키지 계약 시 무상 제공</p>
+      <h2 class="aicf__title">300만원 상당 AI TV CF 무상 제작</h2>
+      <p class="aicf__desc">15초 TV CF 1편을 브랜드에 맞게 제작해드립니다.</p>
+      <a href="#contact" class="btn btn--primary btn--sm" data-cta="contact">무상 제작 상담</a>
+    </div>
+
+    <div class="container aicf__portfolio" id="showcase">
+      <div class="aicf__portfolio-header reveal">
+        <h3 class="aicf__portfolio-title">AI TV CF 포트폴리오</h3>
+        <p class="aicf__portfolio-desc">실제 제작 사례 — 좌우 화살표로 넘기고, 클릭하면 YouTube에서 전체 영상을 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="portfolio-carousel reveal" role="region" aria-roledescription="carousel" aria-label="AI TV CF 포트폴리오 캐러셀">
+        <button type="button" class="portfolio-carousel__arrow" id="portfolioPrev" aria-label="이전 포트폴리오 영상">
+          <svg class="portfolio-carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+
+        <div class="portfolio-carousel__viewport">
+          <div class="portfolio-carousel__track" id="portfolioTrack">
+            <!-- cards injected from HeroCarousel catalog -->
+          </div>
+        </div>
+
+        <button type="button" class="portfolio-carousel__arrow" id="portfolioNext" aria-label="다음 포트폴리오 영상">
+          <svg class="portfolio-carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="showcase__note showcase__note--dark reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span>위 영상은 실제 AI TV CF 제작 사례이며, IPTV 광고 패키지 계약 시 동일한 방식으로 브랜드 맞춤 영상을 제작해드립니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section--process" id="process">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="badge">광고 진행 프로세스</span>
+        <h2 class="section__title section__title--center">단일 창구로, 처음부터 끝까지</h2>
+        <p class="section__desc section__desc--center">캠페인 목표 설정부터 영상 제작, IPTV 송출, 결과 리포트까지 하나의 프로세스로 운영됩니다.</p>
+      </div>
+      <div class="process-timeline reveal">
+        <div class="process-timeline__step"><span>01</span><strong>상담</strong><em>1~2일</em></div>
+        <div class="process-timeline__line" aria-hidden="true"></div>
+        <div class="process-timeline__step"><span>02</span><strong>기획</strong><em>3~5일</em></div>
+        <div class="process-timeline__line" aria-hidden="true"></div>
+        <div class="process-timeline__step process-timeline__step--active"><span>03</span><strong>AI 제작</strong><em>7~10일</em></div>
+        <div class="process-timeline__line" aria-hidden="true"></div>
+        <div class="process-timeline__step"><span>04</span><strong>송출</strong><em>즉시</em></div>
+        <div class="process-timeline__line" aria-hidden="true"></div>
+        <div class="process-timeline__step"><span>05</span><strong>리포트</strong><em>1개월 후</em></div>
+      </div>
+      <p class="process-timeline__note reveal">제작 → 송출 → 완전시청 → 리포트까지 단일 창구로 운영합니다.</p>
+    </div>
+  </section>
+
+  <!-- Report -->
+  <section class="section section--report" id="report">
+    <div class="container report__grid">
+      <div class="report__text reveal">
+        <span class="badge">광고 결과 리포트</span>
+        <h2 class="section__title">송출 1개월 후,<br>실제 데이터로 증명합니다</h2>
+        <p class="section__desc">1개월 송출이 완료되면 노출, 도달, 완전시청, 채널, 지역 데이터를 종합 리포트로 보내드립니다.</p>
+        <div class="report__note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>본 화면은 리포트 예시이며, 실제 리포트는 송출 1개월 후 이메일로 제공됩니다.</span>
+        </div>
+      </div>
+      <div class="dashboard reveal reveal--delay">
+        <div class="dashboard__header">
+          <h4>Campaign Dashboard</h4>
+          <span class="dashboard__date">2024.05.01 - 2024.05.31 (1개월)</span>
+        </div>
+        <div class="dashboard__kpis">
+          <div class="kpi">
+            <span class="kpi__label">총 노출수</span>
+            <strong class="kpi__value">245.8K</strong>
+            <span class="kpi__sub">전체 광고가 노출된 총 횟수</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">도달 가구수</span>
+            <strong class="kpi__value">182.3K</strong>
+            <span class="kpi__sub">광고가 도달한 고유 가구 수</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">완전시청률</span>
+            <strong class="kpi__value">84.2%</strong>
+            <span class="kpi__sub">광고를 끝까지 시청한 비율</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">리포트 기준</span>
+            <strong class="kpi__value">1개월</strong>
+            <span class="kpi__sub">송출 완료 후 리포트 발송</span>
+          </div>
+        </div>
+        <div class="dashboard__charts">
+          <div class="chart-card">
+            <h5>일자별 노출 추이</h5>
+            <div class="bar-chart">
+              <div class="bar" style="height:60%"></div>
+              <div class="bar" style="height:76%"></div>
+              <div class="bar" style="height:84%"></div>
+              <div class="bar" style="height:50%"></div>
+              <div class="bar" style="height:60%"></div>
+              <div class="bar" style="height:64%"></div>
+              <div class="bar" style="height:36%"></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h5>채널별 노출 TOP 5</h5>
+            <div class="channel-bars">
+              <div class="channel-bar"><span>드라마 CH</span><div class="channel-bar__track"><span style="width:85%"></span></div><em>35.4%</em></div>
+              <div class="channel-bar"><span>예능/오락</span><div class="channel-bar__track"><span style="width:60%"></span></div><em>24.7%</em></div>
+              <div class="channel-bar"><span>뉴스/보도</span><div class="channel-bar__track"><span style="width:40%"></span></div><em>16.3%</em></div>
+              <div class="channel-bar"><span>영화 CH</span><div class="channel-bar__track"><span style="width:30%"></span></div><em>12.2%</em></div>
+              <div class="channel-bar"><span>스포츠/취미</span><div class="channel-bar__track"><span style="width:28%"></span></div><em>11.4%</em></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h5>지역별 송출 농도</h5>
+            <div class="region-stats">
+              <div class="region-stat"><span>수도권</span><strong>52.1%</strong><em>127.9K</em></div>
+              <div class="region-stat"><span>영남권</span><strong>28.6%</strong><em>70.2K</em></div>
+              <div class="region-stat"><span>호남권</span><strong>19.3%</strong><em>47.3K</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container cta-band__inner reveal">
+      <p class="cta-band__text">월 100만원부터 시작 — 패키지 비교 후 문의하세요.</p>
+      <a href="#pricing" class="btn btn--ghost">패키지 보기</a>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <section class="section section--pricing section--pricing-premium" id="pricing">
+    <div class="container">
+      <div class="pricing-premium__header reveal">
+        <h2 class="section__title section__title--center">IPTV 광고 패키지</h2>
+        <p class="pricing-premium__guide">월 100만원부터 가능 · 예산을 조절하면 예상 완전시청 노출 수를 바로 확인할 수 있습니다.</p>
+        <p class="pricing-premium__meta">VAT 별도 · <strong>3개월 단위 계약</strong> · 월 예산 기준 시뮬레이터 · 완전시청 기준 송출</p>
+      </div>
+
+      <!-- Interactive budget / exposure calculator -->
+      <div class="ad-calc reveal" id="adCalc">
+        <div class="ad-calc__panel">
+          <div class="ad-calc__intro">
+            <p class="ad-calc__eyebrow">AD BUDGET SIMULATOR</p>
+            <h3 class="ad-calc__title">예산별 예상 노출 수 계산</h3>
+            <p class="ad-calc__lead">월 예산 기준 예상 노출 수를 계산합니다. 실제 계약은 3개월 단위로 진행됩니다. <strong>100만원부터</strong> 시작할 수 있습니다.</p>
+          </div>
+
+          <div class="ad-calc__body">
+            <div class="ad-calc__controls">
+              <div class="ad-calc__field">
+                <span class="ad-calc__label">상품 선택</span>
+                <div class="ad-calc__tabs" role="tablist" aria-label="IPTV 상품 선택">
+                  <button type="button" class="ad-calc__tab ad-calc__tab--active" role="tab" aria-selected="true" data-calc-product="kt" id="calcTabKt">KT 단독</button>
+                  <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="sklg" id="calcTabSklg">SKT, LGU+</button>
+                  <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="all3" id="calcTabAll3">3사 동시 송출</button>
+                </div>
+              </div>
+
+              <div class="ad-calc__field">
+                <div class="ad-calc__label-row">
+                  <span class="ad-calc__label">월 예산</span>
+                  <strong class="ad-calc__budget-value" id="calcBudgetLabel">100만원</strong>
+                </div>
+                <input
+                  type="range"
+                  class="ad-calc__slider"
+                  id="calcBudget"
+                  min="100"
+                  max="500"
+                  step="10"
+                  value="100"
+                  aria-valuemin="100"
+                  aria-valuemax="500"
+                  aria-valuenow="100"
+                  aria-label="월 예산 (만원)"
+                >
+                <div class="ad-calc__ticks" id="calcTicks" aria-hidden="true">
+                  <span>100만원</span>
+                  <span>200만원</span>
+                  <span>300만원</span>
+                  <span>400만원</span>
+                  <span>500만원</span>
+                </div>
+              </div>
+
+              <div class="ad-calc__meta-row">
+                <div class="ad-calc__meta-item">
+                  <span class="ad-calc__meta-k">선택 상품</span>
+                  <span class="ad-calc__meta-v" id="calcProductLabel">KT 단독</span>
+                </div>
+                <div class="ad-calc__meta-item">
+                  <span class="ad-calc__meta-k">단가</span>
+                  <span class="ad-calc__meta-v" id="calcUnitLabel">10원당 1회</span>
+                </div>
+                <div class="ad-calc__meta-item">
+                  <span class="ad-calc__meta-k">기준</span>
+                  <span class="ad-calc__meta-v">월 예산</span>
+                </div>
+                <div class="ad-calc__meta-item">
+                  <span class="ad-calc__meta-k">계약</span>
+                  <span class="ad-calc__meta-v">3개월 단위</span>
+                </div>
+              </div>
+
+              <div class="ad-calc__bonus" id="calcBonus">
+                <span class="ad-calc__bonus-badge">BENEFIT</span>
+                <p class="ad-calc__bonus-text" id="calcBonusText">KT 1개월 보너스 송출 제공</p>
+              </div>
+            </div>
+
+            <div class="ad-calc__result">
+              <p class="ad-calc__result-label">예상 완전시청 노출 수</p>
+              <p class="ad-calc__result-num"><span class="ad-calc__result-prefix">월</span> <span id="calcExposures">100,000</span><em>회</em></p>
+              <p class="ad-calc__result-sub" id="calcResultSub">KT 단독 · 월 예산 100만원</p>
+              <div class="ad-calc__notes">
+                <p>월 예산 기준 예상 노출 수를 계산합니다.</p>
+                <p>실제 계약은 3개월 단위로 진행됩니다.</p>
+                <p>실제 집행 조건 및 타겟 설정에 따라 변동될 수 있습니다.</p>
+              </div>
+              <div class="ad-calc__actions">
+                <a href="#contact" class="btn btn--primary ad-calc__cta" data-cta="contact" id="calcCtaBudget">이 예산으로 상담 문의</a>
+                <a href="#contact" class="btn btn--outline ad-calc__cta ad-calc__cta--ghost" data-cta="contact">패키지 상담 받기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-common-bar reveal">
+        <span class="pricing-common-bar__label">공통 제공</span>
+        <p>AI TV CF 제작 지원 · 완전시청 기준 송출 · 월간 리포트 제공 · 타겟 설계 상담</p>
+      </div>
+
+      <div class="pricing-loyalty reveal">
+        <div class="pricing-loyalty__card card--info">
+          <span class="pricing-loyalty__term">6개월</span>
+          <strong>누적 600만원 이상</strong>
+          <p>제휴 언론사 기사보도 월 1회</p>
+        </div>
+        <div class="pricing-loyalty__card card--info">
+          <span class="pricing-loyalty__term">12개월</span>
+          <strong>누적 1,200만원 이상</strong>
+          <p>국민일보 또는 동아일보 브랜드어워드 혜택</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--contact section--dark" id="contact">
+    <div class="container contact-sales reveal">
+      <div class="contact-sales__lead">
+        <h2 class="section__title section__title--light">IPTV 광고 상담 문의</h2>
+        <p class="section__desc section__desc--light">예산·업종·목표에 맞는 패키지를 상담 후 설계해드립니다.</p>
+        <ul class="contact-sales__points">
+          <li><strong>월 100만원</strong>부터 IPTV 광고 시작</li>
+          <li><strong>300만원 상당</strong> AI TV CF 무상 제작</li>
+          <li><strong>완전시청 기준</strong> 송출 + 결과 리포트</li>
+        </ul>
+      </div>
+      <div class="contact-sales__card card--emphasis">
+        <div class="contact-sales__person">
+          <div>
+            <strong>오픈엑스 송준섭 대리</strong>
+            <span>IPTV 광고 담당</span>
+          </div>
+        </div>
+        <div class="contact-sales__channels">
+          <a href="tel:01021572346" class="contact-sales__channel">
+            <span class="contact-sales__label">전화</span>
+            <strong>010-2157-2346</strong>
+          </a>
+          <a href="mailto:mkt@openxgroup.co.kr" class="contact-sales__channel">
+            <span class="contact-sales__label">이메일</span>
+            <strong>mkt@openxgroup.co.kr</strong>
+          </a>
+        </div>
+        <p class="contact-sales__address">서울 마포구 성암로 330, DMC 첨단산업센터 8층 808호</p>
+        <a href="mailto:mkt@openxgroup.co.kr" class="btn btn--primary btn--full" data-cta="contact">상담 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 IPTV AD PROPOSAL · OpenX Group</span>
+      <span>AI TV CF · IPTV · 인터넷보도 · 솔루션포트</span>
+    </div>
+  </footer>
+
+  <script src="hero-carousel.js"></script>
+  <script src="budget-calculator.js"></script>
+  <script src="targeting-surcharge.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
