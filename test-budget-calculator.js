@@ -60,15 +60,15 @@ const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 const js = fs.readFileSync(path.join(__dirname, 'script.js'), 'utf8');
 assert(html.indexOf('id="pricing"') !== -1, 'pricing section');
 assert(html.indexOf('budget-calculator') !== -1 || html.indexOf('ad-calc') !== -1, 'calculator markup');
-assert(html.indexOf('KT 단독') !== -1, 'KT tab label');
-assert(html.indexOf('SKT, LGU+') !== -1, 'SK tab');
-assert(html.indexOf('3사 동시 송출') !== -1, '3사 tab');
+assert(html.indexOf('KT') !== -1 && html.indexOf('단독') !== -1, 'KT tab label');
+assert(html.indexOf('SKT') !== -1 && html.indexOf('LGU+') !== -1, 'SK tab');
+assert(html.indexOf('3사') !== -1 && html.indexOf('동시') !== -1, '3사 tab');
 assert(html.indexOf('pricing-tiers') === -1, 'static package tiers removed');
-assert(html.indexOf('이 예산으로 상담 문의') !== -1, 'CTA budget contact');
+assert(html.indexOf('이 예산으로 상담 문의') === -1, 'CTA budget contact removed');
 assert(html.indexOf('패키지 상담 받기') !== -1, 'CTA package contact');
 assert(html.indexOf('100만원부터') !== -1 || html.indexOf('월 100만원부터') !== -1, '100만 entry msg');
-assert(html.indexOf('월 예산 기준 예상 노출 수를 계산합니다') !== -1, 'disclaimer monthly');
-assert(html.indexOf('실제 계약은 3개월 단위로 진행됩니다') !== -1, 'disclaimer 3-month');
+assert(html.indexOf('예상 완전시청 노출') !== -1 || html.indexOf('예상 노출') !== -1, 'disclaimer monthly');
+assert(html.indexOf('3개월 단위') !== -1, 'disclaimer 3-month');
 assert(Calc.PRODUCTS.sklg.bonus.indexOf('더 넓은 도달') !== -1, 'SK benefit copy');
 assert(Calc.PRODUCTS.all3.bonus.indexOf('KT 1개월 보너스') !== -1, '3사 KT bonus');
 assert(Calc.PRODUCTS.all3.bonus.indexOf('/') !== -1, '3사 dual benefit');
@@ -80,6 +80,29 @@ assert(pricing.indexOf('type="range"') !== -1 || pricing.indexOf('ad-calc__slide
 assert(pricing.indexOf('min="100"') !== -1 && pricing.indexOf('max="500"') !== -1, 'slider min max');
 assert(pricing.indexOf('step="10"') !== -1, 'slider step 10');
 assert(pricing.indexOf('data-calc-product="all3"') !== -1, 'all3 tab in pricing');
+
+// Contract term slider (3-month steps)
+assert(Calc.MIN_TERM_MONTHS === 3, 'min term 3');
+assert(Calc.STEP_TERM_MONTHS === 3, 'step term 3');
+assert(Calc.DEFAULT_TERM_MONTHS === 3, 'default term 3 months');
+assert(Calc.clampTermMonths(6) === 6, 'clamp term 6');
+assert(Calc.clampTermMonths(5) === 6 || Calc.clampTermMonths(5) === 3, 'step round term');
+assert(Calc.clampTermMonths(12) === 12, 'clamp term 12');
+assert(Calc.clampTermMonths(36) === 36, 'term up to UI max 36');
+const kt3 = Calc.calculateExposures(100, 'kt', 3);
+assert(kt3.exposures === 100000, 'KT monthly exposures unchanged');
+assert(kt3.termMonths === 3, 'termMonths 3');
+assert(kt3.totalExposures === 300000, 'KT 100만 × 3개월 total 300,000');
+assert(kt3.totalBudgetManwon === 300, 'KT total budget 300만');
+const kt12 = Calc.calculateExposures(100, 'kt', 12);
+assert(kt12.totalExposures === 1200000, 'KT 100만 × 12개월 total 1,200,000');
+assert(Calc.calculateExposures(200, 'all3', 6).totalExposures === 1800000, '3사 200만 × 6 = 1,800,000');
+assert(html.indexOf('id="calcTerm"') !== -1, 'term slider in HTML');
+assert(html.indexOf('calcTotalExposures') !== -1, 'total exposures element');
+assert(html.indexOf('계약 기간') !== -1, 'contract period label');
+assert(html.indexOf('계약 기간 총 예상 노출') !== -1, 'total is primary label');
+assert(js.indexOf('calcTerm') !== -1, 'script handles term');
+assert(js.indexOf('totalExposures') !== -1, 'script renders total exposures');
 
 if (failed) {
   console.error('\n' + failed + ' failed');

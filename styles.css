@@ -5765,25 +5765,82 @@ body.nav-open {
   font-weight: 700;
 }
 
+/* Calculator left (fixed width) + loyalty text right — no boxes */
+.pricing-sim-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 28px;
+  margin: 0 auto 32px;
+  max-width: 1100px;
+  min-width: 0;
+}
+
 /* ── Ad budget calculator (interactive simulator) ── */
 .ad-calc {
-  margin: 0 auto 48px;
-  max-width: 960px;
+  margin: 0;
+  max-width: 880px;
+  width: 100%;
+  flex: 0 1 880px;
+  min-width: 0;
+}
+
+/* Text-only side notes (공통 제공 + 누적 혜택) — right of calculator, no boxes */
+.pricing-side-text {
+  flex: 0 0 auto;
+  max-width: 176px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  word-break: keep-all;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.pricing-side-text__block {
+  margin: 0;
+}
+
+.pricing-side-text strong {
+  display: block;
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: -0.01em;
+}
+
+.pricing-loyalty,
+.pricing-loyalty-text,
+.pricing-common-bar {
+  display: none !important;
 }
 
 .ad-calc__panel {
   background: #f7f6f3;
   color: #111;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.18),
-    0 32px 80px -24px rgba(0, 0, 0, 0.45);
+    0 4px 20px rgba(0, 0, 0, 0.14),
+    0 24px 56px -24px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ad-calc__intro {
-  padding: 28px 32px 20px;
+  padding: 20px 24px 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   background: linear-gradient(180deg, #fff 0%, #f7f6f3 100%);
 }
@@ -5797,17 +5854,17 @@ body.nav-open {
 }
 
 .ad-calc__title {
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #111;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .ad-calc__lead {
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   color: #5b5b5b;
-  line-height: 1.55;
+  line-height: 1.5;
   max-width: 52em;
 }
 
@@ -5818,21 +5875,36 @@ body.nav-open {
 
 .ad-calc__body {
   display: grid;
-  grid-template-columns: 1.15fr 0.95fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
   gap: 0;
+  align-items: stretch;
+  min-width: 0;
+  width: 100%;
 }
 
 .ad-calc__controls {
-  padding: 28px 32px 32px;
+  padding: 18px 22px 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .ad-calc__field {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+
+.ad-calc__field--last {
+  margin-bottom: 14px;
 }
 
 .ad-calc__field:last-of-type {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+}
+
+.ad-calc__result-main {
+  margin-bottom: 10px;
+  min-width: 0;
 }
 
 .ad-calc__label {
@@ -5864,12 +5936,16 @@ body.nav-open {
 }
 
 .ad-calc__tabs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 0;
-  padding: 4px;
+  padding: 3px;
   background: #ebeae6;
   border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .ad-calc__tab {
@@ -5877,13 +5953,26 @@ body.nav-open {
   background: transparent;
   color: #6b6b6b;
   font-family: inherit;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 12px 8px;
+  padding: 10px 6px;
   border-radius: 9px;
   cursor: pointer;
   transition: background 0.15s, color 0.15s, box-shadow 0.15s;
-  line-height: 1.25;
+  line-height: 1;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-height: 40px;
+  min-width: 0;
+  box-sizing: border-box;
+  letter-spacing: -0.03em;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .ad-calc__tab:hover {
@@ -5899,6 +5988,47 @@ body.nav-open {
 .ad-calc__tab:focus-visible {
   outline: 2px solid #111;
   outline-offset: 2px;
+}
+
+.ad-calc__term-hint {
+  margin: 6px 0 0;
+  font-size: 0.72rem;
+  color: #8a8a8a;
+  line-height: 1.35;
+}
+
+/* Total (primary) vs monthly (secondary) on dark result panel */
+.ad-calc__term-total-sub {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.ad-calc__monthly {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ad-calc__monthly-k {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ad-calc__monthly-v {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: -0.02em;
 }
 
 .ad-calc__slider {
@@ -5956,38 +6086,97 @@ body.nav-open {
 
 .ad-calc__meta-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+  min-width: 0;
+  margin: 0 0 12px;
 }
 
 @media (min-width: 861px) {
   .ad-calc__meta-row {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 .ad-calc__meta-item {
-  padding: 12px 12px;
+  padding: 10px 8px;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
+  min-width: 0;
+  width: 100%;
+  height: 58px;
+  min-height: 58px;
+  max-height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ad-calc__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* White CTA on dark result panel */
+.ad-calc__result .ad-calc__cta,
+.ad-calc__result .btn--primary {
+  width: 100%;
+  height: 58px;
+  min-height: 58px;
+  max-height: 58px;
+  padding: 0 18px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
+  background: #fff !important;
+  color: #111 !important;
+  border: none !important;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.ad-calc__result .ad-calc__cta:hover,
+.ad-calc__result .btn--primary:hover {
+  background: #f0f0ee !important;
+  color: #111 !important;
 }
 
 .ad-calc__meta-k {
   display: block;
-  font-size: 0.68rem;
+  width: 100%;
+  font-size: 0.66rem;
   font-weight: 600;
   color: #8a8a8a;
   margin-bottom: 4px;
   letter-spacing: 0.04em;
+  line-height: 1.2;
 }
 
 .ad-calc__meta-v {
   display: block;
-  font-size: 0.88rem;
+  width: 100%;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #111;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 100%;
+  word-break: keep-all;
 }
 
 .ad-calc__bonus {
@@ -6000,6 +6189,7 @@ body.nav-open {
   color: #fff;
   border-radius: 10px;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 .ad-calc__bonus[hidden] {
@@ -6019,15 +6209,16 @@ body.nav-open {
 
 .ad-calc__bonus-text {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.35;
   color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 @media (max-width: 860px) {
@@ -6037,31 +6228,46 @@ body.nav-open {
 }
 
 .ad-calc__result {
-  padding: 32px 28px;
+  padding: 22px 20px 20px;
   background: #111;
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 0;
+  align-self: stretch;
   min-height: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .ad-calc__result-label {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  word-break: keep-all;
 }
 
 .ad-calc__result-num {
-  font-size: clamp(2.2rem, 4.5vw, 3.1rem);
+  font-size: clamp(1.45rem, 2.8vw, 2.2rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 10px;
+  line-height: 1.1;
+  margin-bottom: 6px;
   color: #fff;
   transition: opacity 0.12s ease;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.ad-calc__result-num--primary {
+  color: #fff;
 }
 
 .ad-calc__result-num.is-updating {
@@ -6081,34 +6287,51 @@ body.nav-open {
   font-style: normal;
   font-size: 0.42em;
   font-weight: 700;
-  margin-left: 6px;
+  margin-left: 4px;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.65);
   vertical-align: 0.15em;
+  white-space: nowrap;
 }
 
 .ad-calc__result-sub {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.58);
-  margin-bottom: 18px;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.52);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+.ad-calc__term-total-sub {
+  max-width: 100%;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.ad-calc__monthly {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ad-calc__monthly-v {
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .ad-calc__notes {
-  margin-bottom: 22px;
+  margin-bottom: 0;
 }
 
 .ad-calc__notes p {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.42);
-  line-height: 1.5;
-  margin: 0 0 4px;
-}
-
-.ad-calc__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.45;
+  margin: 0 0 3px;
 }
 
 .ad-calc__cta {
@@ -6118,13 +6341,14 @@ body.nav-open {
 }
 
 .ad-calc__result .btn--primary {
-  background: #fff;
-  color: #111;
-  border: none;
+  background: #fff !important;
+  color: #111 !important;
+  border: none !important;
 }
 
 .ad-calc__result .btn--primary:hover {
-  background: #f0f0ee;
+  background: #f0f0ee !important;
+  color: #111 !important;
 }
 
 .ad-calc__cta--ghost,
@@ -6160,16 +6384,24 @@ body.nav-open {
   }
 
   .ad-calc__meta-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-calc__meta-item {
+    height: 58px;
+    min-height: 58px;
+    max-height: 58px;
   }
 
   .ad-calc__tabs {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-wrap: nowrap !important;
   }
 
   .ad-calc__tab {
-    font-size: 0.88rem;
-    padding: 12px 10px;
+    font-size: 0.7rem;
+    padding: 10px 4px;
+    white-space: nowrap !important;
   }
 }
 
@@ -6439,41 +6671,54 @@ body.nav-open {
   line-height: 1.5;
 }
 
-/* Loyalty mini cards */
+/* Loyalty — stacked beside calculator */
 .pricing-loyalty {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  min-width: 0;
+  height: 100%;
 }
 
 .pricing-loyalty__card {
-  padding: 20px 22px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  flex: 1 1 0;
+  padding: 18px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
 }
 
 .pricing-loyalty__term {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--on-dark-subtle, rgba(255, 255, 255, 0.55));
-  margin-bottom: 6px;
+  display: none;
 }
 
 .pricing-loyalty__card strong {
   display: block;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+  font-weight: 800;
   color: var(--on-dark, #fff);
-  margin-bottom: 4px;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  word-break: keep-all;
 }
 
 .pricing-loyalty__card p {
+  margin: 0;
   font-size: 0.8rem;
   color: var(--on-dark-muted, rgba(255, 255, 255, 0.78));
-  line-height: 1.5;
+  line-height: 1.45;
+  text-align: left;
+  word-break: keep-all;
+  min-width: 0;
 }
 
 /* Responsive pricing */
@@ -7445,16 +7690,18 @@ body.nav-open {
   }
 
   .ad-calc__tabs {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 6px;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
   }
 
   .ad-calc__tab {
-    font-size: 0.84rem;
-    padding: 12px 10px;
-    min-height: 44px;
-    width: 100%;
+    font-size: 0.68rem !important;
+    padding: 10px 3px !important;
+    min-height: 40px;
+    flex: 1 1 0 !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
   }
 
   .ad-calc__slider,
@@ -7473,8 +7720,14 @@ body.nav-open {
   }
 
   .ad-calc__meta-row {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 8px;
+  }
+
+  .ad-calc__meta-item {
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
   }
 
   .ad-calc__result {
@@ -7482,10 +7735,24 @@ body.nav-open {
     min-width: 0;
   }
 
+  .ad-calc__result {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
   .ad-calc__result-num {
-    font-size: clamp(1.5rem, 7.5vw, 2.1rem) !important;
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem) !important;
     word-break: break-all;
+    overflow-wrap: anywhere;
+    max-width: 100%;
     line-height: 1.15;
+  }
+
+  .ad-calc__result-sub,
+  .ad-calc__term-total-sub {
+    white-space: normal !important;
+    word-break: keep-all;
   }
 
   .ad-calc__bonus-text {
@@ -8060,8 +8327,9 @@ body.nav-open {
   }
 
   .ad-calc__tab {
-    font-size: 0.8rem;
-    padding: 11px 8px;
+    font-size: 0.62rem !important;
+    padding: 9px 2px !important;
+    white-space: nowrap !important;
   }
 
   .dashboard__kpis {
@@ -10413,5 +10681,622 @@ body.nav-open {
     top: auto !important;
     transform: none !important;
     margin: 8px auto !important;
+  }
+}
+@media (max-width: 480px) {
+  .ad-calc__terms {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+
+  .ad-calc__term {
+    font-size: 0.78rem;
+    padding: 10px 6px;
+  }
+
+  .ad-calc__term-total-v {
+    font-size: 1.3rem;
+  }
+}
+/* Loyalty + calc summary polish */
+@media (max-width: 768px) {
+  .pricing-loyalty__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 16px;
+  }
+
+  .pricing-loyalty__card strong {
+    white-space: normal;
+  }
+
+  .pricing-loyalty__card p {
+    text-align: left;
+  }
+
+  .ad-calc__summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 10px;
+    padding: 10px;
+  }
+
+  .ad-calc__summary strong {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-loyalty__card {
+    gap: 4px;
+  }
+
+  .ad-calc__summary {
+    grid-template-columns: 1fr;
+  }
+}
+/* Pricing sim row responsive */
+@media (max-width: 960px) {
+  .pricing-sim-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 880px;
+  }
+
+  .pricing-loyalty {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .pricing-loyalty__card {
+    flex: 1 1 0;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-loyalty {
+    flex-direction: column;
+  }
+}
+/* Override older loyalty grid rules — keep side column layout */
+.pricing-sim-row .pricing-loyalty {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: none !important;
+}
+
+@media (max-width: 960px) {
+  .pricing-sim-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pricing-sim-row .pricing-loyalty {
+    flex-direction: row !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-sim-row .pricing-loyalty {
+    flex-direction: column !important;
+  }
+}
+@media (max-width: 640px) {
+  .pricing-loyalty-text {
+    font-size: 0.8rem;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .pricing-loyalty-text__sep {
+    display: block;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .pricing-loyalty-text strong {
+    display: inline;
+  }
+}
+@media (max-width: 1024px) {
+  .pricing-sim-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pricing-loyalty-text {
+    max-width: 880px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pricing-loyalty-text strong {
+    display: inline;
+    margin-right: 4px;
+  }
+
+  .pricing-loyalty-text__line {
+    display: inline;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-loyalty-text {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 10px;
+    padding: 0 4px;
+  }
+}
+/* FINAL: calc left fixed, loyalty TEXT only on right — no boxes */
+.pricing-sim-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  margin: 0 auto 32px !important;
+  max-width: 1120px !important;
+}
+
+.pricing-sim-row .ad-calc {
+  flex: 0 1 880px !important;
+  max-width: 880px !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.pricing-sim-row .pricing-loyalty-text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 160px !important;
+  max-width: 160px !important;
+  width: 160px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 14px !important;
+  text-align: left !important;
+  font-size: 0.8rem !important;
+  line-height: 1.5 !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pricing-sim-row .pricing-loyalty-text__line {
+  display: block !important;
+}
+
+.pricing-sim-row .pricing-loyalty-text strong {
+  display: block !important;
+  margin: 0 0 3px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 1000px) {
+  .pricing-sim-row {
+    flex-wrap: wrap !important;
+  }
+
+  .pricing-sim-row .pricing-loyalty-text {
+    flex: 1 1 100% !important;
+    max-width: 880px !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px 18px !important;
+    justify-content: center !important;
+  }
+
+  .pricing-sim-row .pricing-loyalty-text strong {
+    display: inline !important;
+    margin-right: 4px !important;
+  }
+
+  .pricing-sim-row .pricing-loyalty-text__line {
+    display: inline !important;
+  }
+}
+/* Side text next to calculator */
+.pricing-sim-row .pricing-side-text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 170px !important;
+  max-width: 170px !important;
+  width: 170px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 14px !important;
+  text-align: left !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pricing-sim-row .pricing-side-text strong {
+  display: block !important;
+  margin: 0 0 3px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 0.8rem !important;
+}
+
+.pricing-sim-row .pricing-common-bar,
+.pricing-sim-row + .pricing-common-bar {
+  display: none !important;
+}
+
+@media (max-width: 1000px) {
+  .pricing-sim-row .pricing-side-text {
+    flex: 1 1 100% !important;
+    max-width: 880px !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+}
+@media (max-width: 768px) {
+  .ad-calc__meta-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ad-calc__cta-side {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+  }
+}
+/* Ensure meta + CTA share one horizontal band */
+@media (min-width: 861px) {
+  .ad-calc__body {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) !important;
+    grid-template-areas:
+      "controls result"
+      "meta actions"
+      "bonus ." !important;
+  }
+
+  .ad-calc__meta-row {
+    grid-area: meta !important;
+  }
+
+  .ad-calc__actions {
+    grid-area: actions !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 20px 12px !important;
+    background: #f7f6f3 !important;
+  }
+
+  .ad-calc__bonus {
+    grid-area: bonus !important;
+  }
+
+  .ad-calc__controls {
+    grid-area: controls !important;
+  }
+
+  .ad-calc__result {
+    grid-area: result !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .ad-calc__body {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "controls"
+      "result"
+      "meta"
+      "actions"
+      "bonus" !important;
+  }
+
+  .ad-calc__meta-row {
+    border-right: none !important;
+    padding: 12px 16px !important;
+  }
+
+  .ad-calc__actions {
+    padding: 0 16px 16px !important;
+  }
+
+  .ad-calc__bonus {
+    margin: 0 16px 16px !important;
+  }
+}
+/* Kill broken multi-area grid overrides for ad-calc body */
+@media (min-width: 861px) {
+  .ad-calc__body {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) !important;
+    grid-template-areas: none !important;
+  }
+
+  .ad-calc__controls,
+  .ad-calc__result,
+  .ad-calc__meta-row,
+  .ad-calc__actions,
+  .ad-calc__bonus {
+    grid-area: auto !important;
+  }
+
+  .ad-calc__actions {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .ad-calc__result .ad-calc__cta,
+  .ad-calc__result .btn--primary {
+    background: #fff !important;
+    color: #111 !important;
+    border: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .ad-calc__body {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: none !important;
+  }
+
+  .ad-calc__controls,
+  .ad-calc__result,
+  .ad-calc__meta-row,
+  .ad-calc__actions,
+  .ad-calc__bonus {
+    grid-area: auto !important;
+  }
+
+  .ad-calc__actions {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+}
+/* ═══════════════════════════════════════════════════════════
+   CONTACT CTA — refined dark stage + premium card
+   ═══════════════════════════════════════════════════════════ */
+.section--contact {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 20%, rgba(196, 168, 120, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 50% at 90% 80%, rgba(120, 150, 200, 0.08) 0%, transparent 50%),
+    linear-gradient(165deg, #121212 0%, #0a0a0a 48%, #070708 100%) !important;
+  padding: 88px 0 !important;
+}
+
+.contact-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-stage__glow {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.contact-stage__glow--a {
+  width: min(55vw, 480px);
+  height: min(55vw, 480px);
+  left: -8%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(196, 168, 120, 0.12) 0%, transparent 70%);
+}
+
+.contact-stage__glow--b {
+  width: min(45vw, 400px);
+  height: min(45vw, 400px);
+  right: -5%;
+  bottom: 5%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+}
+
+.section--contact .container,
+.section--contact .contact-sales {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-sales {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) !important;
+  gap: 48px 56px !important;
+  align-items: center !important;
+}
+
+.contact-sales__lead .badge--on-dark,
+.contact-sales__lead .badge {
+  display: inline-flex;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(232, 210, 160, 0.22);
+  color: rgba(232, 210, 160, 0.9) !important;
+}
+
+.contact-sales__lead .section__title {
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+
+.contact-sales__lead .section__desc {
+  max-width: 28em;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+.contact-sales__points {
+  margin-top: 28px !important;
+  gap: 12px !important;
+}
+
+.contact-sales__points li {
+  padding: 12px 14px 12px 36px !important;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 0.92rem !important;
+}
+
+.contact-sales__points li::before {
+  left: 14px !important;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(232, 210, 160, 0.85) !important;
+  font-size: 0.78rem;
+}
+
+.contact-sales__points strong {
+  color: #fff !important;
+}
+
+/* Right contact card — premium glass */
+.contact-sales__card,
+.contact-sales__card.card--emphasis {
+  position: relative;
+  padding: 32px 28px 28px !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 48px -20px rgba(0, 0, 0, 0.55) !important;
+  overflow: hidden;
+}
+
+.contact-sales__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 210, 160, 0.35), transparent);
+  pointer-events: none;
+}
+
+.contact-sales__person {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 24px !important;
+  padding-bottom: 22px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.contact-sales__person strong {
+  display: block;
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 3px;
+}
+
+.contact-sales__person span {
+  font-size: 0.82rem !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.contact-sales__channels {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  margin-bottom: 16px !important;
+}
+
+.contact-sales__channel {
+  display: block;
+  padding: 14px 14px !important;
+  border-radius: 12px !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background 0.15s, border-color 0.15s !important;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.contact-sales__channel:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(232, 210, 160, 0.28) !important;
+}
+
+.contact-sales__label {
+  display: block;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42) !important;
+  margin-bottom: 6px !important;
+}
+
+.contact-sales__channel strong {
+  display: block;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: -0.02em;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.contact-sales__address {
+  font-size: 0.8rem !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+  margin: 0 0 20px !important;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.section--contact .btn--primary,
+.contact-sales__cta {
+  background: #fff !important;
+  color: #111 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  min-height: 52px;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+  transition: background 0.15s, transform 0.15s !important;
+}
+
+.section--contact .btn--primary:hover,
+.contact-sales__cta:hover {
+  background: #f4f4f2 !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 860px) {
+  .contact-sales {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .contact-sales__channels {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-sales__card {
+    padding: 24px 18px 20px !important;
+  }
+
+  .section--contact {
+    padding: 64px 0 !important;
   }
 }

@@ -256,10 +256,6 @@
 
     function portfolioCardHtml(i) {
       const s = HeroCarousel.getSlide(i);
-      const badgeClass =
-        s.type === '브랜드'
-          ? 'video-card__badge video-card__badge--brand'
-          : 'video-card__badge';
       return (
         '<a class="video-card card--media portfolio-carousel__card" href="' +
         escapeHtml(s.href) +
@@ -276,12 +272,6 @@
         ' 미리보기" loading="lazy">' +
         '<div class="video-card__overlay"><span class="video-card__play" aria-hidden="true">' +
         '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>' +
-        '<span class="' +
-        badgeClass +
-        '">' +
-        escapeHtml(s.type) +
-        '</span>' +
-        '<span class="video-card__ai">AI 제작</span>' +
         '<span class="video-card__duration">15초</span>' +
         '</div>' +
         '<div class="video-card__body">' +
@@ -410,25 +400,37 @@
   if (typeof BudgetCalculator !== 'undefined') {
     let calcProduct = 'kt';
     let calcBudget = BudgetCalculator.DEFAULT_MANWON;
+    let calcTerm = BudgetCalculator.DEFAULT_TERM_MONTHS;
 
     const budgetInput = document.getElementById('calcBudget');
     const budgetLabel = document.getElementById('calcBudgetLabel');
+    const termInput = document.getElementById('calcTerm');
+    const termLabel = document.getElementById('calcTermLabel');
     const productLabel = document.getElementById('calcProductLabel');
     const unitLabel = document.getElementById('calcUnitLabel');
+    const metaBudget = document.getElementById('calcMetaBudget');
+    const metaTerm = document.getElementById('calcMetaTerm');
     const exposuresEl = document.getElementById('calcExposures');
+    const totalExposuresEl = document.getElementById('calcTotalExposures');
+    const totalSub = document.getElementById('calcTotalSub');
     const resultSub = document.getElementById('calcResultSub');
     const resultNum = document.querySelector('.ad-calc__result-num');
     const calcBonus = document.getElementById('calcBonus');
     const calcBonusText = document.getElementById('calcBonusText');
     const tabs = document.querySelectorAll('.ad-calc__tab');
 
-    function updateSliderFill() {
-      if (!budgetInput) return;
-      const min = Number(budgetInput.min);
-      const max = Number(budgetInput.max);
-      const val = Number(budgetInput.value);
+    function setSliderFill(input) {
+      if (!input) return;
+      const min = Number(input.min);
+      const max = Number(input.max);
+      const val = Number(input.value);
       const pct = max > min ? ((val - min) / (max - min)) * 100 : 0;
-      budgetInput.style.setProperty('--calc-pct', pct + '%');
+      input.style.setProperty('--calc-pct', pct + '%');
+    }
+
+    function updateSliderFill() {
+      setSliderFill(budgetInput);
+      setSliderFill(termInput);
     }
 
     function syncSliderBounds() {
@@ -450,8 +452,9 @@
     }
 
     function renderCalculator() {
-      const result = BudgetCalculator.calculateExposures(calcBudget, calcProduct);
+      const result = BudgetCalculator.calculateExposures(calcBudget, calcProduct, calcTerm);
       calcBudget = result.budgetManwon;
+      calcTerm = result.termMonths;
 
       syncSliderBounds();
 
@@ -462,26 +465,52 @@
       if (budgetLabel) {
         budgetLabel.textContent = BudgetCalculator.formatManwon(result.budgetManwon, calcProduct);
       }
+      if (termInput) {
+        termInput.value = String(result.termMonths);
+        termInput.setAttribute('aria-valuenow', String(result.termMonths));
+      }
+      if (termLabel) {
+        termLabel.textContent = BudgetCalculator.formatTermMonths(result.termMonths);
+      }
       if (productLabel) productLabel.textContent = result.productLabel;
       if (unitLabel) unitLabel.textContent = result.unitLabel;
+      if (metaBudget) {
+        metaBudget.textContent = BudgetCalculator.formatManwon(result.budgetManwon, calcProduct);
+      }
+      if (metaTerm) {
+        metaTerm.textContent = BudgetCalculator.formatTermMonths(result.termMonths);
+      }
       if (resultSub) {
+        // Keep lines short so dark result panel doesn't overflow on long product names
         resultSub.textContent =
           result.productLabel +
-          ' · 월 예산 ' +
-          BudgetCalculator.formatManwon(result.budgetManwon, calcProduct);
+          ' · 월 ' +
+          BudgetCalculator.formatManwon(result.budgetManwon, calcProduct) +
+          ' · ' +
+          BudgetCalculator.formatTermMonths(result.termMonths);
+      }
+      if (totalSub) {
+        totalSub.textContent =
+          BudgetCalculator.formatTermMonths(result.termMonths) +
+          ' · 총 ' +
+          result.totalBudgetManwon.toLocaleString('ko-KR') +
+          '만원';
       }
       if (calcBonus) {
         const hasBonus = !!result.bonus;
         calcBonus.hidden = !hasBonus;
         if (hasBonus && calcBonusText) calcBonusText.textContent = result.bonus;
       }
-      if (exposuresEl) {
-        if (resultNum) resultNum.classList.add('is-updating');
-        exposuresEl.textContent = BudgetCalculator.formatExposures(result.exposures);
-        window.requestAnimationFrame(() => {
-          if (resultNum) resultNum.classList.remove('is-updating');
-        });
+      if (resultNum) resultNum.classList.add('is-updating');
+      if (totalExposuresEl) {
+        totalExposuresEl.textContent = BudgetCalculator.formatExposures(result.totalExposures);
       }
+      if (exposuresEl) {
+        exposuresEl.textContent = BudgetCalculator.formatExposures(result.exposures);
+      }
+      window.requestAnimationFrame(() => {
+        if (resultNum) resultNum.classList.remove('is-updating');
+      });
       updateSliderFill();
     }
 
@@ -504,6 +533,13 @@
     if (budgetInput) {
       budgetInput.addEventListener('input', () => {
         calcBudget = BudgetCalculator.clampBudgetManwon(budgetInput.value, calcProduct);
+        renderCalculator();
+      });
+    }
+
+    if (termInput) {
+      termInput.addEventListener('input', () => {
+        calcTerm = BudgetCalculator.clampTermMonths(termInput.value);
         renderCalculator();
       });
     }

@@ -48,8 +48,26 @@
   var STEP_MANWON = 10;
   var DEFAULT_MANWON = 100;
 
+  /** Contract: 3-month steps (no business ceiling; UI slider cap for usability) */
+  var MIN_TERM_MONTHS = 3;
+  var MAX_TERM_MONTHS = 36;
+  var STEP_TERM_MONTHS = 3;
+  var DEFAULT_TERM_MONTHS = 3;
+
   function getProduct(productId) {
     return PRODUCTS[productId] || PRODUCTS.kt;
+  }
+
+  function clampTermMonths(months) {
+    var n = Math.round(Number(months) / STEP_TERM_MONTHS) * STEP_TERM_MONTHS;
+    if (isNaN(n)) n = DEFAULT_TERM_MONTHS;
+    if (n < MIN_TERM_MONTHS) n = MIN_TERM_MONTHS;
+    if (n > MAX_TERM_MONTHS) n = MAX_TERM_MONTHS;
+    return n;
+  }
+
+  function formatTermMonths(months) {
+    return clampTermMonths(months) + '개월';
   }
 
   function minManwonForProduct(productId) {
@@ -82,14 +100,16 @@
   }
 
   /**
-   * @param {number} budgetManwon - budget in 만원
+   * @param {number} budgetManwon - monthly budget in 만원
    * @param {string} productId - 'kt' | 'sklg' | 'all3'
+   * @param {number} [termMonths] - contract length: 3 | 6 | 9 | 12 (default 3)
    */
-  function calculateExposures(budgetManwon, productId) {
+  function calculateExposures(budgetManwon, productId, termMonths) {
     var product = getProduct(productId);
     var manwon = clampBudgetManwon(budgetManwon, product.id);
     var won = manwon * 10000;
     var exposures;
+    var term = clampTermMonths(termMonths);
 
     if (product.id === 'all3') {
       exposures = exposuresAll3(won);
@@ -107,6 +127,10 @@
       minManwon: product.minManwon || MIN_MANWON,
       bonus: product.bonus || '',
       exposures: exposures,
+      termMonths: term,
+      totalExposures: exposures * term,
+      totalBudgetManwon: manwon * term,
+      totalBudgetWon: won * term,
     };
   }
 
@@ -124,13 +148,19 @@
     MAX_MANWON: MAX_MANWON,
     STEP_MANWON: STEP_MANWON,
     DEFAULT_MANWON: DEFAULT_MANWON,
+    MIN_TERM_MONTHS: MIN_TERM_MONTHS,
+    MAX_TERM_MONTHS: MAX_TERM_MONTHS,
+    STEP_TERM_MONTHS: STEP_TERM_MONTHS,
+    DEFAULT_TERM_MONTHS: DEFAULT_TERM_MONTHS,
     minManwonForProduct: minManwonForProduct,
     clampBudgetManwon: clampBudgetManwon,
+    clampTermMonths: clampTermMonths,
     manwonToWon: manwonToWon,
     getProduct: getProduct,
     exposuresAll3: exposuresAll3,
     calculateExposures: calculateExposures,
     formatExposures: formatExposures,
     formatManwon: formatManwon,
+    formatTermMonths: formatTermMonths,
   };
 });

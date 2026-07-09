@@ -939,7 +939,6 @@
       </div>
 
       <div class="showcase__note showcase__note--dark reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
         <span>위 영상은 실제 AI TV CF 제작 사례이며, IPTV 광고 패키지 계약 시 동일한 방식으로 브랜드 맞춤 영상을 제작해드립니다.</span>
       </div>
     </div>
@@ -1135,111 +1134,144 @@
         <p class="pricing-premium__meta">VAT 별도 · <strong>3개월 단위 계약</strong> · 월 예산 기준 시뮬레이터 · 완전시청 기준 송출</p>
       </div>
 
-      <!-- Interactive budget / exposure calculator -->
-      <div class="ad-calc reveal" id="adCalc">
-        <div class="ad-calc__panel">
-          <div class="ad-calc__intro">
-            <p class="ad-calc__eyebrow">AD BUDGET SIMULATOR</p>
-            <h3 class="ad-calc__title">예산별 예상 노출 수 계산</h3>
-            <p class="ad-calc__lead">월 예산 기준 예상 노출 수를 계산합니다. 실제 계약은 3개월 단위로 진행됩니다. <strong>100만원부터</strong> 시작할 수 있습니다.</p>
-          </div>
-
-          <div class="ad-calc__body">
-            <div class="ad-calc__controls">
-              <div class="ad-calc__field">
-                <span class="ad-calc__label">상품 선택</span>
-                <div class="ad-calc__tabs" role="tablist" aria-label="IPTV 상품 선택">
-                  <button type="button" class="ad-calc__tab ad-calc__tab--active" role="tab" aria-selected="true" data-calc-product="kt" id="calcTabKt">KT 단독</button>
-                  <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="sklg" id="calcTabSklg">SKT, LGU+</button>
-                  <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="all3" id="calcTabAll3">3사 동시 송출</button>
-                </div>
-              </div>
-
-              <div class="ad-calc__field">
-                <div class="ad-calc__label-row">
-                  <span class="ad-calc__label">월 예산</span>
-                  <strong class="ad-calc__budget-value" id="calcBudgetLabel">100만원</strong>
-                </div>
-                <input
-                  type="range"
-                  class="ad-calc__slider"
-                  id="calcBudget"
-                  min="100"
-                  max="500"
-                  step="10"
-                  value="100"
-                  aria-valuemin="100"
-                  aria-valuemax="500"
-                  aria-valuenow="100"
-                  aria-label="월 예산 (만원)"
-                >
-                <div class="ad-calc__ticks" id="calcTicks" aria-hidden="true">
-                  <span>100만원</span>
-                  <span>200만원</span>
-                  <span>300만원</span>
-                  <span>400만원</span>
-                  <span>500만원</span>
-                </div>
-              </div>
-
-              <div class="ad-calc__meta-row">
-                <div class="ad-calc__meta-item">
-                  <span class="ad-calc__meta-k">선택 상품</span>
-                  <span class="ad-calc__meta-v" id="calcProductLabel">KT 단독</span>
-                </div>
-                <div class="ad-calc__meta-item">
-                  <span class="ad-calc__meta-k">단가</span>
-                  <span class="ad-calc__meta-v" id="calcUnitLabel">10원당 1회</span>
-                </div>
-                <div class="ad-calc__meta-item">
-                  <span class="ad-calc__meta-k">기준</span>
-                  <span class="ad-calc__meta-v">월 예산</span>
-                </div>
-                <div class="ad-calc__meta-item">
-                  <span class="ad-calc__meta-k">계약</span>
-                  <span class="ad-calc__meta-v">3개월 단위</span>
-                </div>
-              </div>
-
-              <div class="ad-calc__bonus" id="calcBonus">
-                <span class="ad-calc__bonus-badge">BENEFIT</span>
-                <p class="ad-calc__bonus-text" id="calcBonusText">KT 1개월 보너스 송출 제공</p>
-              </div>
+      <!-- Calculator fixed left + loyalty text right -->
+      <div class="pricing-sim-row reveal">
+        <div class="ad-calc" id="adCalc">
+          <div class="ad-calc__panel">
+            <div class="ad-calc__intro">
+              <p class="ad-calc__eyebrow">AD BUDGET SIMULATOR</p>
+              <h3 class="ad-calc__title">예산별 예상 노출 수 계산</h3>
+              <p class="ad-calc__lead">월 예산·계약 기간을 조절하면 예상 완전시청 노출 수를 바로 확인할 수 있습니다.<br>계약은 <strong>3개월 단위</strong>이며, <strong>100만원부터</strong> 시작할 수 있습니다.</p>
             </div>
 
-            <div class="ad-calc__result">
-              <p class="ad-calc__result-label">예상 완전시청 노출 수</p>
-              <p class="ad-calc__result-num"><span class="ad-calc__result-prefix">월</span> <span id="calcExposures">100,000</span><em>회</em></p>
-              <p class="ad-calc__result-sub" id="calcResultSub">KT 단독 · 월 예산 100만원</p>
-              <div class="ad-calc__notes">
-                <p>월 예산 기준 예상 노출 수를 계산합니다.</p>
-                <p>실제 계약은 3개월 단위로 진행됩니다.</p>
-                <p>실제 집행 조건 및 타겟 설정에 따라 변동될 수 있습니다.</p>
+            <div class="ad-calc__body">
+              <div class="ad-calc__controls">
+                <div class="ad-calc__field">
+                  <span class="ad-calc__label">상품 선택</span>
+                  <div class="ad-calc__tabs" role="tablist" aria-label="IPTV 상품 선택">
+                    <button type="button" class="ad-calc__tab ad-calc__tab--active" role="tab" aria-selected="true" data-calc-product="kt" id="calcTabKt">KT&nbsp;단독</button>
+                    <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="sklg" id="calcTabSklg">SKT,&nbsp;LGU+</button>
+                    <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="all3" id="calcTabAll3">3사&nbsp;동시&nbsp;송출</button>
+                  </div>
+                </div>
+
+                <div class="ad-calc__field">
+                  <div class="ad-calc__label-row">
+                    <span class="ad-calc__label">월 예산</span>
+                    <strong class="ad-calc__budget-value" id="calcBudgetLabel">100만원</strong>
+                  </div>
+                  <input
+                    type="range"
+                    class="ad-calc__slider"
+                    id="calcBudget"
+                    min="100"
+                    max="500"
+                    step="10"
+                    value="100"
+                    aria-valuemin="100"
+                    aria-valuemax="500"
+                    aria-valuenow="100"
+                    aria-label="월 예산 (만원)"
+                  >
+                  <div class="ad-calc__ticks" id="calcTicks" aria-hidden="true">
+                    <span>100만원</span>
+                    <span>200만원</span>
+                    <span>300만원</span>
+                    <span>400만원</span>
+                    <span>500만원</span>
+                  </div>
+                </div>
+
+                <div class="ad-calc__field ad-calc__field--last">
+                  <div class="ad-calc__label-row">
+                    <span class="ad-calc__label">계약 기간</span>
+                    <strong class="ad-calc__budget-value" id="calcTermLabel">3개월</strong>
+                  </div>
+                  <input
+                    type="range"
+                    class="ad-calc__slider ad-calc__slider--term"
+                    id="calcTerm"
+                    min="3"
+                    max="36"
+                    step="3"
+                    value="3"
+                    aria-valuemin="3"
+                    aria-valuemax="36"
+                    aria-valuenow="3"
+                    aria-label="계약 기간 (개월)"
+                  >
+                  <div class="ad-calc__ticks" id="calcTermTicks" aria-hidden="true">
+                    <span>3개월</span>
+                    <span>12개월</span>
+                    <span>24개월</span>
+                    <span>36개월</span>
+                  </div>
+                </div>
+
+                <div class="ad-calc__meta-row">
+                  <div class="ad-calc__meta-item">
+                    <span class="ad-calc__meta-k">선택 상품</span>
+                    <span class="ad-calc__meta-v" id="calcProductLabel">KT 단독</span>
+                  </div>
+                  <div class="ad-calc__meta-item">
+                    <span class="ad-calc__meta-k">단가</span>
+                    <span class="ad-calc__meta-v" id="calcUnitLabel">10원당 1회</span>
+                  </div>
+                  <div class="ad-calc__meta-item">
+                    <span class="ad-calc__meta-k">월 예산</span>
+                    <span class="ad-calc__meta-v" id="calcMetaBudget">100만원</span>
+                  </div>
+                  <div class="ad-calc__meta-item">
+                    <span class="ad-calc__meta-k">계약 기간</span>
+                    <span class="ad-calc__meta-v" id="calcMetaTerm">3개월</span>
+                  </div>
+                </div>
+
+                <div class="ad-calc__bonus" id="calcBonus">
+                  <span class="ad-calc__bonus-badge">BENEFIT</span>
+                  <p class="ad-calc__bonus-text" id="calcBonusText">KT 1개월 보너스 송출 제공</p>
+                </div>
               </div>
-              <div class="ad-calc__actions">
-                <a href="#contact" class="btn btn--primary ad-calc__cta" data-cta="contact" id="calcCtaBudget">이 예산으로 상담 문의</a>
-                <a href="#contact" class="btn btn--outline ad-calc__cta ad-calc__cta--ghost" data-cta="contact">패키지 상담 받기</a>
+
+              <div class="ad-calc__result">
+                <div class="ad-calc__result-main">
+                  <p class="ad-calc__result-label">계약 기간 총 예상 노출</p>
+                  <p class="ad-calc__result-num ad-calc__result-num--primary">
+                    <span id="calcTotalExposures">300,000</span><em>회</em>
+                  </p>
+                  <p class="ad-calc__term-total-sub" id="calcTotalSub">3개월 · 총 예산 300만원</p>
+                </div>
+                <div class="ad-calc__monthly">
+                  <span class="ad-calc__monthly-k">월 예상 노출</span>
+                  <strong class="ad-calc__monthly-v"><span id="calcExposures">100,000</span>회</strong>
+                </div>
+                <p class="ad-calc__result-sub" id="calcResultSub">KT 단독 · 월 예산 100만원 · 3개월</p>
+                <div class="ad-calc__notes">
+                  <p>월 예산 기준 예상 노출 수를 계산합니다.</p>
+                  <p>계약은 3개월 단위로 진행됩니다.</p>
+                  <p>실제 집행 조건 및 타겟 설정에 따라 변동될 수 있습니다.</p>
+                </div>
+                <div class="ad-calc__actions">
+                  <a href="#contact" class="btn btn--primary ad-calc__cta" data-cta="contact" id="calcCtaPackage">패키지 상담 받기</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="pricing-common-bar reveal">
-        <span class="pricing-common-bar__label">공통 제공</span>
-        <p>AI TV CF 제작 지원 · 완전시청 기준 송출 · 월간 리포트 제공 · 타겟 설계 상담</p>
-      </div>
-
-      <div class="pricing-loyalty reveal">
-        <div class="pricing-loyalty__card card--info">
-          <span class="pricing-loyalty__term">6개월</span>
-          <strong>누적 600만원 이상</strong>
-          <p>제휴 언론사 기사보도 월 1회</p>
-        </div>
-        <div class="pricing-loyalty__card card--info">
-          <span class="pricing-loyalty__term">12개월</span>
-          <strong>누적 1,200만원 이상</strong>
-          <p>국민일보 또는 동아일보 브랜드어워드 혜택</p>
+        <div class="pricing-side-text" aria-label="공통 제공 및 누적 혜택">
+          <p class="pricing-side-text__block">
+            <strong>공통 제공</strong>
+            AI TV CF 제작 지원 · 완전시청 기준 송출 · 월간 리포트 제공
+          </p>
+          <p class="pricing-side-text__block">
+            <strong>누적 600만원 이상</strong>
+            제휴 언론사 기사보도 월 1회
+          </p>
+          <p class="pricing-side-text__block">
+            <strong>누적 1,200만원 이상</strong>
+            국민일보 또는 동아일보 브랜드어워드 혜택
+          </p>
         </div>
       </div>
     </div>
@@ -1247,8 +1279,13 @@
 
   <!-- Contact -->
   <section class="section section--contact section--dark" id="contact">
+    <div class="contact-stage" aria-hidden="true">
+      <span class="contact-stage__glow contact-stage__glow--a"></span>
+      <span class="contact-stage__glow contact-stage__glow--b"></span>
+    </div>
     <div class="container contact-sales reveal">
       <div class="contact-sales__lead">
+        <span class="badge badge--on-dark">CONTACT</span>
         <h2 class="section__title section__title--light">IPTV 광고 상담 문의</h2>
         <p class="section__desc section__desc--light">예산·업종·목표에 맞는 패키지를 상담 후 설계해드립니다.</p>
         <ul class="contact-sales__points">
@@ -1257,11 +1294,10 @@
           <li><strong>완전시청 기준</strong> 송출 + 결과 리포트</li>
         </ul>
       </div>
-      <div class="contact-sales__card card--emphasis">
+      <div class="contact-sales__card">
         <div class="contact-sales__person">
           <div>
             <strong>오픈엑스 송준섭 대리</strong>
-            <span>IPTV 광고 담당</span>
           </div>
         </div>
         <div class="contact-sales__channels">
@@ -1275,7 +1311,7 @@
           </a>
         </div>
         <p class="contact-sales__address">서울 마포구 성암로 330, DMC 첨단산업센터 8층 808호</p>
-        <a href="mailto:mkt@openxgroup.co.kr" class="btn btn--primary btn--full" data-cta="contact">상담 문의하기</a>
+        <a href="mailto:mkt@openxgroup.co.kr" class="btn btn--primary btn--full contact-sales__cta" data-cta="contact">상담 문의하기</a>
       </div>
     </div>
   </section>
@@ -1283,7 +1319,6 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© 2026 IPTV AD PROPOSAL · OpenX Group</span>
-      <span>AI TV CF · IPTV · 인터넷보도 · 솔루션포트</span>
     </div>
   </footer>
 
