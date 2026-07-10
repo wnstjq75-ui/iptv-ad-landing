@@ -47,7 +47,7 @@ assert(Calc.calculateExposures(200, 'all3').exposures === 300000, '3사 200만 �
 assert(Calc.calculateExposures(300, 'all3').exposures === 450000, '3사 300만 → 450,000');
 // 500만 = 250만 each → 250,000 + 500,000 = 750,000
 assert(Calc.calculateExposures(500, 'all3').exposures === 750000, '3사 500만 → 750,000');
-assert(Calc.PRODUCTS.all3.label.indexOf('3사') !== -1, '3사 product exists');
+assert(Calc.PRODUCTS.all3.label === '3사 통합', '3사 product label is 3사 통합');
 assert(Calc.PRODUCTS.all3.unitLabel === '3사 통합', '3사 unit label is 3사 통합');
 
 // Labels
@@ -103,6 +103,24 @@ assert(html.indexOf('계약 기간') !== -1, 'contract period label');
 assert(html.indexOf('계약 기간 총 예상 노출') !== -1, 'total is primary label');
 assert(js.indexOf('calcTerm') !== -1, 'script handles term');
 assert(js.indexOf('totalExposures') !== -1, 'script renders total exposures');
+
+// Surcharge panel left of calculator
+assert(html.indexOf('id="calcSurcharge"') !== -1, 'calc surcharge panel');
+assert(html.indexOf('data-calc-region="S"') !== -1, 'region S grade');
+assert(html.indexOf('data-calc-region="A"') !== -1, 'region A grade');
+assert(html.indexOf('data-calc-region="B"') !== -1, 'region B grade');
+assert(html.indexOf('data-calc-surcharge="time"') !== -1, 'time surcharge toggle');
+assert(html.indexOf('data-calc-surcharge="channel"') !== -1, 'channel surcharge toggle');
+assert(html.indexOf('data-calc-surcharge="audience"') !== -1, 'audience surcharge toggle');
+assert(html.indexOf('강남구') !== -1, 'region names S');
+assert(typeof Calc.sumSurchargeRate === 'function', 'sumSurchargeRate');
+assert(Calc.sumSurchargeRate({}) === 0, 'no surcharge 0');
+assert(Calc.sumSurchargeRate({ region: 'S' }) === 0.4, 'S region 40%');
+assert(Calc.sumSurchargeRate({ time: true, channel: true }) === 0.6, 'time+channel 60%');
+assert(Calc.applySurchargeRate(100000, 0) === 100000, 'no rate keeps exposures');
+assert(Calc.applySurchargeRate(100000, 0.6) === 62500, '100k / 1.6 = 62500');
+assert(Calc.formatSurchargePct(0.4) === '40%', 'format 40%');
+assert(js.indexOf('sumSurchargeRate') !== -1, 'script applies surcharge');
 
 if (failed) {
   console.error('\n' + failed + ' failed');

@@ -401,6 +401,12 @@
     let calcProduct = 'kt';
     let calcBudget = BudgetCalculator.DEFAULT_MANWON;
     let calcTerm = BudgetCalculator.DEFAULT_TERM_MONTHS;
+    const calcSurcharge = {
+      region: null, // 'S' | 'A' | 'B' | null
+      time: false,
+      channel: false,
+      audience: false,
+    };
 
     const budgetInput = document.getElementById('calcBudget');
     const budgetLabel = document.getElementById('calcBudgetLabel');
@@ -414,10 +420,15 @@
     const totalExposuresEl = document.getElementById('calcTotalExposures');
     const totalSub = document.getElementById('calcTotalSub');
     const resultSub = document.getElementById('calcResultSub');
+    const surchargeLine = document.getElementById('calcSurchargeLine');
+    const surchargeTotalEl = document.getElementById('calcSurchargeTotal');
+    const surchargeNoteEl = document.getElementById('calcSurchargeNote');
     const resultNum = document.querySelector('.ad-calc__result-num');
     const calcBonus = document.getElementById('calcBonus');
     const calcBonusText = document.getElementById('calcBonusText');
     const tabs = document.querySelectorAll('.ad-calc__tab');
+    const regionBtns = document.querySelectorAll('[data-calc-region]');
+    const surchargeBtns = document.querySelectorAll('[data-calc-surcharge]');
 
     function setSliderFill(input) {
       if (!input) return;
@@ -456,6 +467,19 @@
       calcBudget = result.budgetManwon;
       calcTerm = result.termMonths;
 
+      const surchargeRate = BudgetCalculator.sumSurchargeRate(calcSurcharge);
+      const monthlyExposures = BudgetCalculator.applySurchargeRate(
+        result.exposures,
+        surchargeRate
+      );
+      const totalExposures = monthlyExposures * result.termMonths;
+      const surchargeParts = BudgetCalculator.describeSurcharge(calcSurcharge);
+      const surchargePct = BudgetCalculator.formatSurchargePct(surchargeRate);
+      const surchargeCopy =
+        surchargeRate > 0
+          ? '할증 ' + surchargePct + (surchargeParts.length ? ' · ' + surchargeParts.join(' + ') : '')
+          : '할증 미적용 · 기본 단가 기준';
+
       syncSliderBounds();
 
       if (budgetInput) {
@@ -481,7 +505,6 @@
         metaTerm.textContent = BudgetCalculator.formatTermMonths(result.termMonths);
       }
       if (resultSub) {
-        // Keep lines short so dark result panel doesn't overflow on long product names
         resultSub.textContent =
           result.productLabel +
           ' · 월 ' +
@@ -496,6 +519,9 @@
           result.totalBudgetManwon.toLocaleString('ko-KR') +
           '만원';
       }
+      if (surchargeLine) surchargeLine.textContent = surchargeCopy;
+      if (surchargeTotalEl) surchargeTotalEl.textContent = surchargePct;
+      if (surchargeNoteEl) surchargeNoteEl.textContent = surchargeCopy;
       if (calcBonus) {
         const hasBonus = !!result.bonus;
         calcBonus.hidden = !hasBonus;
@@ -503,16 +529,40 @@
       }
       if (resultNum) resultNum.classList.add('is-updating');
       if (totalExposuresEl) {
-        totalExposuresEl.textContent = BudgetCalculator.formatExposures(result.totalExposures);
+        totalExposuresEl.textContent = BudgetCalculator.formatExposures(totalExposures);
       }
       if (exposuresEl) {
-        exposuresEl.textContent = BudgetCalculator.formatExposures(result.exposures);
+        exposuresEl.textContent = BudgetCalculator.formatExposures(monthlyExposures);
       }
       window.requestAnimationFrame(() => {
         if (resultNum) resultNum.classList.remove('is-updating');
       });
       updateSliderFill();
     }
+
+    regionBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-calc-region');
+        calcSurcharge.region = id ? id : null;
+        regionBtns.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('calc-surcharge__chip--active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        renderCalculator();
+      });
+    });
+
+    surchargeBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-calc-surcharge');
+        if (!key || !(key in calcSurcharge) || key === 'region') return;
+        calcSurcharge[key] = !calcSurcharge[key];
+        btn.classList.toggle('calc-surcharge__chip--active', calcSurcharge[key]);
+        btn.setAttribute('aria-pressed', calcSurcharge[key] ? 'true' : 'false');
+        renderCalculator();
+      });
+    });
 
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {

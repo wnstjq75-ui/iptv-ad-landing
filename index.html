@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260710-m6">
+  <link rel="stylesheet" href="styles.css?v=20260710-s3">
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -1134,8 +1134,60 @@
         <p class="pricing-premium__meta">VAT 별도 · <strong>3개월 단위 계약</strong> · 월 예산 기준 시뮬레이터 · 완전시청 기준 송출</p>
       </div>
 
-      <!-- Calculator fixed left + loyalty text right -->
+      <!-- 할증 선택(좌) + 계산기 박스 + 혜택 텍스트(우) -->
       <div class="pricing-sim-row reveal">
+        <aside class="calc-surcharge" id="calcSurcharge" aria-label="타겟팅 할증 선택">
+          <p class="calc-surcharge__eyebrow">SURCHARGE</p>
+          <h3 class="calc-surcharge__title">할증율 선택</h3>
+          <p class="calc-surcharge__lead">선택 시 동일 예산 기준 예상 노출 수에 반영됩니다.</p>
+
+          <div class="calc-surcharge__group">
+            <span class="calc-surcharge__label">지역 할증 <em>S~B</em></span>
+            <div class="calc-surcharge__region" role="radiogroup" aria-label="지역 등급 선택">
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--region calc-surcharge__chip--active" data-calc-region="" aria-pressed="true">
+                <strong>없음 · 할증 미적용 지역</strong>
+                <span>시·군·구 기준 A·B등급 제외 지역, 서울특별시·도·광역시 단위 선택 및 전국</span>
+              </button>
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--region" data-calc-region="S" aria-pressed="false">
+                <strong>S급 · 40%</strong>
+                <span>강남구, 송파구, 서초구</span>
+              </button>
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--region" data-calc-region="A" aria-pressed="false">
+                <strong>A급 · 30%</strong>
+                <span>광진구, 분당구, 일산 서·동구, 부산 해운대, 대구 달서, 화성, 인천 연수</span>
+              </button>
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--region" data-calc-region="B" aria-pressed="false">
+                <strong>B급 · 20%</strong>
+                <span>강동구, 노원구, 천안, 부천, 광명, 김포, 수원 영통·장안·팔달, 용인</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="calc-surcharge__group">
+            <span class="calc-surcharge__label">타겟팅 할증</span>
+            <div class="calc-surcharge__toggles" role="group" aria-label="시간·채널·오디언스 할증">
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--toggle" data-calc-surcharge="time" aria-pressed="false">
+                <strong>시간 · 20%</strong>
+                <span>연속 8시간 이상 선택 송출</span>
+              </button>
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--toggle" data-calc-surcharge="channel" aria-pressed="false">
+                <strong>채널 · 40%</strong>
+                <span>7개 이상 채널 선택 송출</span>
+              </button>
+              <button type="button" class="calc-surcharge__chip calc-surcharge__chip--toggle" data-calc-surcharge="audience" aria-pressed="false">
+                <strong>오디언스 · 20%</strong>
+                <span>시청 패턴 맞춤 세그먼트</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="calc-surcharge__summary">
+            <span>적용 할증</span>
+            <strong id="calcSurchargeTotal">0%</strong>
+          </div>
+          <p class="calc-surcharge__note" id="calcSurchargeNote">할증 미적용 · 기본 단가 기준</p>
+        </aside>
+
         <div class="ad-calc" id="adCalc">
           <div class="ad-calc__panel">
             <div class="ad-calc__intro">
@@ -1151,7 +1203,7 @@
                   <div class="ad-calc__tabs" role="tablist" aria-label="IPTV 상품 선택">
                     <button type="button" class="ad-calc__tab ad-calc__tab--active" role="tab" aria-selected="true" data-calc-product="kt" id="calcTabKt">KT&nbsp;단독</button>
                     <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="sklg" id="calcTabSklg">SKT,&nbsp;LGU+</button>
-                    <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="all3" id="calcTabAll3">3사&nbsp;동시&nbsp;송출</button>
+                    <button type="button" class="ad-calc__tab" role="tab" aria-selected="false" data-calc-product="all3" id="calcTabAll3">3사&nbsp;통합</button>
                   </div>
                 </div>
 
@@ -1246,9 +1298,11 @@
                   <span class="ad-calc__monthly-k">월 예상 노출</span>
                   <strong class="ad-calc__monthly-v"><span id="calcExposures">100,000</span>회</strong>
                 </div>
+                <p class="ad-calc__surcharge-line" id="calcSurchargeLine">할증 미적용 · 기본 단가 기준</p>
                 <p class="ad-calc__result-sub" id="calcResultSub">KT 단독 · 월 예산 100만원 · 3개월</p>
                 <div class="ad-calc__notes">
                   <p>월 예산 기준 예상 노출 수를 계산합니다.</p>
+                  <p>할증 적용 시 동일 예산 대비 노출 수가 감소합니다.</p>
                   <p>계약은 3개월 단위로 진행됩니다.</p>
                   <p>실제 집행 조건 및 타겟 설정에 따라 변동될 수 있습니다.</p>
                 </div>
@@ -1323,9 +1377,9 @@
     </div>
   </footer>
 
-  <script src="hero-carousel.js?v=20260710-m6"></script>
-  <script src="budget-calculator.js?v=20260710-m6"></script>
-  <script src="targeting-surcharge.js?v=20260710-m6"></script>
-  <script src="script.js?v=20260710-m6"></script>
+  <script src="hero-carousel.js?v=20260710-s1"></script>
+  <script src="budget-calculator.js?v=20260710-s3"></script>
+  <script src="targeting-surcharge.js?v=20260710-s1"></script>
+  <script src="script.js?v=20260710-s1"></script>
 </body>
 </html>
