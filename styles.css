@@ -5851,11 +5851,18 @@ body.nav-open {
   font-size: 0.82rem;
   color: var(--on-dark-subtle, rgba(255, 255, 255, 0.55));
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .pricing-premium__meta strong {
   color: rgba(255, 255, 255, 0.88);
   font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .pricing-premium__meta {
+    white-space: normal;
+  }
 }
 
 /* Calculator left (fixed width) + loyalty text right — no boxes */
