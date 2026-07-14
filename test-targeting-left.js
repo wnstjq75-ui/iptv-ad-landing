@@ -28,7 +28,7 @@ const leftEnd = section.indexOf('targeting__panel');
 const left = section.slice(leftStart, leftEnd);
 
 assert(left.indexOf('타겟팅 기능') === -1, 'top badge removed');
-assert(left.indexOf('필요한 시청자에게만') !== -1, 'current targeting headline');
+assert(left.indexOf('더 많이가 아니라, 더 정확하게') !== -1, 'current targeting headline');
 assert(left.indexOf('targeting__points') !== -1, 'points list present');
 assert((left.match(/targeting__point-icon/g) || []).length >= 3, 'at least 3 point icons');
 assert(left.indexOf('시·군·구') !== -1 || left.indexOf('정밀 송출') !== -1, 'point region');
