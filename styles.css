@@ -14625,3 +14625,173 @@ body {
     padding-bottom: 0;
   }
 }
+
+/* SOLUTION — compact copy and one unified comparison board. */
+.section--solution .solution__intro {
+  max-width: 1040px;
+  margin-bottom: 42px;
+}
+
+.section--solution .solution__intro .section__title {
+  margin-bottom: 22px;
+}
+
+.section--solution .solution__intro .section__lead {
+  margin-bottom: 4px;
+}
+
+.section--solution .solution__intro .section__desc {
+  margin-top: 0;
+  line-height: 1.6;
+}
+
+.section--solution .compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 48px -40px rgba(17, 17, 17, 0.5);
+}
+
+.section--solution .compare__card,
+.section--solution .compare__card--before,
+.section--solution .compare__card--after,
+.section--solution .compare__card--after.card--emphasis {
+  min-width: 0;
+  min-height: 430px;
+  padding: 34px 38px 30px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #111 !important;
+  box-shadow: none !important;
+}
+
+.section--solution .compare__card--before,
+.section--solution .compare__card--before.card--info {
+  background: #fff !important;
+}
+
+.section--solution .compare__card--after,
+.section--solution .compare__card--after.card--emphasis {
+  border-left: 1px solid rgba(17, 17, 17, 0.18) !important;
+  background: #f0efeb !important;
+}
+
+.section--solution .compare__card--before::after,
+.section--solution .compare__card--after::after {
+  content: none !important;
+}
+
+.section--solution .compare__label,
+.section--solution .compare__card--before .compare__label,
+.section--solution .compare__card--after .compare__label {
+  display: block;
+  margin: 0 0 9px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: rgba(17, 17, 17, 0.48) !important;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.section--solution .compare__card h3,
+.section--solution .compare__card--after h3 {
+  margin: 0 0 22px;
+  color: #111 !important;
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.section--solution .compare__card li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  min-height: 94px;
+  padding: 17px 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  border-bottom: 0;
+}
+
+.section--solution .compare__card li:last-child {
+  padding-bottom: 0;
+}
+
+.section--solution .compare__num {
+  width: auto;
+  color: rgba(17, 17, 17, 0.42) !important;
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.section--solution .compare__card li strong,
+.section--solution .compare__card--after li strong {
+  margin-bottom: 4px;
+  color: #111 !important;
+  font-size: 0.94rem;
+  font-weight: 750;
+}
+
+.section--solution .compare__card li p,
+.section--solution .compare__card--after li p {
+  color: rgba(17, 17, 17, 0.6) !important;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.section--solution .compare__arrow,
+.section--solution .compare__icon {
+  display: none !important;
+}
+
+.section--solution .solution__banner {
+  justify-content: flex-start;
+  margin-top: 20px;
+  padding: 17px 0 0 !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(17, 17, 17, 0.14) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: rgba(17, 17, 17, 0.66) !important;
+  box-shadow: none !important;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 768px) {
+  .section--solution .solution__intro {
+    margin-bottom: 30px;
+  }
+
+  .section--solution .solution__intro .section__title {
+    margin-bottom: 18px;
+  }
+
+  .section--solution .compare {
+    grid-template-columns: 1fr;
+  }
+
+  .section--solution .compare__card,
+  .section--solution .compare__card--before,
+  .section--solution .compare__card--after,
+  .section--solution .compare__card--after.card--emphasis {
+    width: 100%;
+    min-height: 0;
+    padding: 26px 22px 24px !important;
+  }
+
+  .section--solution .compare__card--after,
+  .section--solution .compare__card--after.card--emphasis {
+    border-top: 1px solid rgba(17, 17, 17, 0.18) !important;
+    border-left: 0 !important;
+  }
+
+  .section--solution .compare__card li {
+    min-height: 0;
+  }
+}
