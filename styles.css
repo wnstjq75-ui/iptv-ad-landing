@@ -12795,7 +12795,7 @@ body {
 
 .section--aicf .aicf__desc {
   max-width: 1180px;
-  margin: 0 auto 28px;
+  margin: 0 auto;
   padding-top: 0;
   font-size: 1.08rem;
   line-height: 1.75;
@@ -12849,7 +12849,7 @@ body {
 
   .section--aicf .aicf__desc {
     max-width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 0;
     padding-top: 0;
     font-size: 0.95rem !important;
     line-height: 1.7;
