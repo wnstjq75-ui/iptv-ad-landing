@@ -12593,3 +12593,89 @@ body {
     white-space: nowrap;
   }
 }
+
+/* Text layout recovery: prevent Korean words from splitting and
+   keep each section's reading width intentional. */
+.section__title,
+.section__subtitle,
+.section__desc,
+.pricing-premium__guide,
+.pricing-premium__meta,
+.aicf__title,
+.aicf__desc,
+.product-system__bridge,
+.contact-sales__lead .section__desc {
+  text-wrap: wrap;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.about__intro {
+  max-width: 960px;
+}
+
+.about__intro .section__desc {
+  max-width: 920px;
+}
+
+.solution__intro {
+  max-width: 1180px;
+}
+
+.solution__intro .section__desc {
+  max-width: 1120px;
+  white-space: normal;
+}
+
+.product-system__intro {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-system__bridge {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aicf__desc {
+  max-width: 1180px;
+  white-space: normal;
+  line-height: 1.65;
+}
+
+.pricing-premium__header {
+  max-width: 1320px;
+}
+
+.pricing-premium__guide {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-sales__lead .section__desc {
+  max-width: 38em;
+}
+
+@media (max-width: 1119px) {
+  #benefits .section__desc--center {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__intro,
+  .about__intro .section__desc,
+  .solution__intro,
+  .solution__intro .section__desc,
+  .product-system__intro,
+  .product-system__bridge,
+  .aicf__desc,
+  .pricing-premium__header,
+  .pricing-premium__guide,
+  .contact-sales__lead .section__desc {
+    max-width: 100% !important;
+  }
+}
