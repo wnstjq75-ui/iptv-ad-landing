@@ -14519,6 +14519,24 @@ body {
   }
 }
 
+/* Targeting campaign headline — lock the intended two-line rhythm. */
+#targeting .targeting__headline {
+  max-width: none !important;
+  font-size: clamp(1.95rem, 3.3vw, 2.55rem) !important;
+  line-height: 1.14 !important;
+}
+
+#targeting .targeting__headline-line {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  #targeting .targeting__headline {
+    font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
+  }
+}
+
 /* White outer cards — preserve visualization fills and internal hierarchy. */
 #targeting .targeting__points li,
 #targeting .targeting__footer,
