@@ -91,40 +91,6 @@
     });
   });
 
-  // ---------- Targeting surcharge filter ----------
-  if (typeof TargetingSurcharge !== 'undefined') {
-    const surchargeFilters = document.querySelectorAll('[data-surcharge-filter]');
-    const surchargeRows = document.querySelectorAll('.surcharge__row[data-surcharge-cat]');
-    const surchargeGrades = document.getElementById('surchargeGrades');
-
-    function applySurchargeFilter(filterId) {
-      const id = filterId || 'all';
-      surchargeFilters.forEach((btn) => {
-        const on = btn.getAttribute('data-surcharge-filter') === id;
-        btn.classList.toggle('surcharge__filter--active', on);
-        btn.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      surchargeRows.forEach((row) => {
-        const cat = row.getAttribute('data-surcharge-cat');
-        const visible = TargetingSurcharge.isRowVisible(id, cat);
-        row.hidden = !visible;
-        row.classList.toggle('surcharge__row--hidden', !visible);
-      });
-      if (surchargeGrades) {
-        const show = TargetingSurcharge.shouldShowRegionGrades(id);
-        surchargeGrades.hidden = !show;
-      }
-    }
-
-    surchargeFilters.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        applySurchargeFilter(btn.getAttribute('data-surcharge-filter'));
-      });
-    });
-
-    applySurchargeFilter('time');
-  }
-
   const kpiValues = document.querySelectorAll('.kpi__value');
   const animateValue = (el) => {
     const text = el.textContent;

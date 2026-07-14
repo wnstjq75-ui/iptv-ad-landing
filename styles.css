@@ -14586,22 +14586,13 @@ body {
 
 #targeting .report-flow__step,
 #targeting .targeting-report__kpi {
-  background:
-    radial-gradient(circle at 16% 0%, #fff 0%, rgba(255, 255, 255, 0) 44%),
-    linear-gradient(145deg, #ffffff 0%, #f7f7f6 48%, #ececea 100%) !important;
+  background: #fff !important;
   border-color: rgba(17, 17, 17, 0.14) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(17, 17, 17, 0.05),
-    0 16px 30px -20px rgba(0, 0, 0, 0.42);
+  box-shadow: none;
 }
 
 #targeting .report-flow__step--active {
-  box-shadow:
-    inset 0 0 0 1px rgba(17, 17, 17, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(17, 17, 17, 0.05),
-    0 16px 30px -20px rgba(0, 0, 0, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.08);
 }
 
 #targeting .report-flow__week,
@@ -14613,6 +14604,16 @@ body {
 #targeting .report-flow__step strong,
 #targeting .targeting-report__kpi strong {
   color: #111 !important;
+}
+
+/* Surcharge list — show every targeting condition in one view. */
+#targeting .surcharge__table {
+  flex: 0 0 auto;
+}
+
+#targeting .surcharge__row[hidden],
+#targeting .surcharge__row--hidden {
+  display: grid !important;
 }
 
 @media (max-width: 480px) {

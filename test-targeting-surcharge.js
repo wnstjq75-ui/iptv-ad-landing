@@ -18,16 +18,10 @@ function assert(cond, msg) {
   }
 }
 
-assert(S.FILTERS.length === 4, '4 filters (no 전체)');
-assert(S.FILTERS[0].id === 'time' && S.FILTERS[0].label === '시간', 'default filter is 시간');
-assert(S.filterRows('time').length === 1 && S.filterRows('time')[0].option === '시간 선택형', 'time filter');
+assert(S.ROWS.length === 4, '4 surcharge rows');
 assert(S.filterRows('channel')[0].rate === '40%', 'channel 40%');
 assert(S.filterRows('audience')[0].rate === '20%', 'audience 20%');
 assert(S.filterRows('region')[0].rate === '등급별 적용', 'region tiered');
-assert(S.isRowVisible('time', 'time') === true, 'time shows time');
-assert(S.isRowVisible('channel', 'time') === false, 'channel hides time');
-assert(S.shouldShowRegionGrades('region') === true, 'grades on region');
-assert(S.shouldShowRegionGrades('time') === false, 'grades hidden on time');
 
 const time = S.ROWS.find((r) => r.id === 'time');
 assert(time.criteria.indexOf('8시간') !== -1 && time.rate === '20%', 'time criteria/rate');
@@ -49,11 +43,7 @@ const end = html.indexOf('id="aicf"');
 const section = html.slice(start, end);
 
 assert(section.indexOf('타겟팅 할증 기준') !== -1, 'title in targeting');
-assert(section.indexOf('data-surcharge-filter="all"') === -1, 'no 전체 filter');
-assert(section.indexOf('data-surcharge-filter="time"') !== -1, 'filter time');
-assert(section.indexOf('data-surcharge-filter="channel"') !== -1, 'filter channel');
-assert(section.indexOf('data-surcharge-filter="region"') !== -1, 'filter region');
-assert(section.indexOf('data-surcharge-filter="audience"') !== -1, 'filter audience');
+assert(section.indexOf('data-surcharge-filter=') === -1, 'filter buttons removed');
 assert(section.indexOf('시간 선택형') !== -1, 'row time');
 assert(section.indexOf('채널 선택형') !== -1, 'row channel');
 assert(section.indexOf('오디언스 타겟팅') !== -1, 'row audience');
@@ -63,9 +53,8 @@ assert(section.indexOf('7개 이상') !== -1, 'channel criteria text');
 assert(section.indexOf('지역 등급 기준') !== -1, 'region grades title');
 assert(section.indexOf('S급') !== -1 && section.indexOf('강남구') !== -1, 'S grade content');
 assert(section.indexOf('집행 조건에 따라 달라질 수 있습니다') !== -1, 'disclaimer');
-assert(/src="targeting-surcharge\.js(\?[^"]*)?"/.test(html), 'loads module');
-assert(js.indexOf('TargetingSurcharge') !== -1, 'script uses module');
-assert(js.indexOf('isRowVisible') !== -1 || js.indexOf('filterRows') !== -1, 'uses pure filter');
+assert(!/src="targeting-surcharge\.js(\?[^"]*)?"/.test(html), 'filter module not loaded');
+assert(js.indexOf('applySurchargeFilter') === -1, 'filter behavior removed');
 
 if (failed) {
   console.error('\n' + failed + ' failed');
