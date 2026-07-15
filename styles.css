@@ -6349,8 +6349,9 @@ body.nav-open {
 .ad-calc__slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 22px;
-  height: 22px;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #111;
   border: 3px solid #fff;
@@ -6359,8 +6360,9 @@ body.nav-open {
 }
 
 .ad-calc__slider::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #111;
   border: 3px solid #fff;
@@ -6380,6 +6382,12 @@ body.nav-open {
   font-weight: 600;
   color: #8a8a8a;
   letter-spacing: -0.01em;
+}
+
+#calcTermTicks > span {
+  flex: 0 0 28px;
+  width: 28px;
+  text-align: center;
 }
 
 /* 3사 선택 시 눈금 4칸(200~500) */
@@ -12009,8 +12017,9 @@ body.nav-open {
   }
 
   #calcTermTicks {
-    display: grid !important;
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    justify-content: space-between !important;
   }
 
   #calcTicks.ad-calc__ticks--from-200 {
@@ -12056,6 +12065,17 @@ body.nav-open {
   .ad-calc__ticks span:last-child {
     text-align: right !important;
     padding-right: 0 !important;
+  }
+
+  /* 계약기간 눈금 중심을 28px 슬라이더 손잡이의 실제 정지점과 일치시킴 */
+  #calcTermTicks > span,
+  #calcTermTicks > span:first-child,
+  #calcTermTicks > span:last-child {
+    flex: 0 0 28px !important;
+    width: 28px !important;
+    max-width: 28px !important;
+    padding: 0 !important;
+    text-align: center !important;
   }
 
   /* 계약기간 값(우측 숫자) 모바일에서도 선명하게 */
