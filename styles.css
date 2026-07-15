@@ -15714,6 +15714,14 @@ body {
   letter-spacing: 0.1em;
 }
 
+.contact-sales__direct strong {
+  margin-bottom: 2px;
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
 .contact-sales__direct a {
   width: fit-content;
   color: rgba(255, 255, 255, 0.86);
