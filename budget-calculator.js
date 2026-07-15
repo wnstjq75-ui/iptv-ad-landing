@@ -2,9 +2,7 @@
  * Pure 30-day budget → complete-view exposure calculator.
  * Used by pricing simulator UI and node unit tests.
  *
- * KT 단독: 10원당 1회 → exposures = budgetWon / 10
- * SKT+LGU+ 통합: 5원당 1회 → exposures = budgetWon / 5
- * 3사 동시 송출: 예산 절반 KT(/10) + 절반 SKT+LGU+(/5), 최소 200만원
+ * IPTV 3사 통합: 월 100만원당 예상 완전시청 노출 18만 회
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -16,36 +14,19 @@
   'use strict';
 
   var PRODUCTS = {
-    kt: {
-      id: 'kt',
-      label: 'KT 단독',
-      unitPrice: 10,
-      unitLabel: '10원당 1회',
-      minManwon: 100,
-      bonus: 'KT 1개월 보너스 송출 제공',
-    },
-    sklg: {
-      id: 'sklg',
-      label: 'SKT, LGU+',
-      unitPrice: 5,
-      unitLabel: '5원당 1회',
-      minManwon: 100,
-      bonus: '동일 예산 대비 더 넓은 도달 가능',
-    },
     all3: {
       id: 'all3',
       label: '3사 통합',
-      // 예산 50% KT(10원) + 50% SKT+LGU+(5원) — 내부 계산용
       unitPrice: null,
-      unitLabel: '3사 통합',
-      minManwon: 200,
-      bonus: 'KT 1개월 보너스 송출 제공 / 최대 커버리지·브랜드 캠페인 적합',
+      unitLabel: '100만원당 월 18만회',
+      minManwon: 100,
+      bonus: 'IPTV 3사 통합 송출로 폭넓은 커버리지 제공',
     },
   };
 
   var MIN_MANWON = 100;
   var MAX_MANWON = 500;
-  var STEP_MANWON = 10;
+  var STEP_MANWON = 100;
   var DEFAULT_MANWON = 100;
 
   /** Contract: 6-month steps (no business ceiling; UI slider cap for usability) */
@@ -55,7 +36,7 @@
   var DEFAULT_TERM_MONTHS = 6;
 
   function getProduct(productId) {
-    return PRODUCTS[productId] || PRODUCTS.kt;
+    return PRODUCTS[productId] || PRODUCTS.all3;
   }
 
   function clampTermMonths(months) {
@@ -88,20 +69,14 @@
     return clampBudgetManwon(manwon, productId) * 10000;
   }
 
-  /**
-   * 3사: 예산의 절반은 KT 단가(/10), 절반은 SKT+LGU+ 단가(/5)
-   * exposures = (won/2)/10 + (won/2)/5 = won/20 + won/10 = 3*won/20
-   */
+  /** IPTV 3사 통합: 월 100만원당 예상 완전시청 18만 회 */
   function exposuresAll3(won) {
-    var half = won / 2;
-    var ktPart = Math.floor(half / PRODUCTS.kt.unitPrice);
-    var skPart = Math.floor(half / PRODUCTS.sklg.unitPrice);
-    return ktPart + skPart;
+    return Math.floor(won * 0.18);
   }
 
   /**
    * @param {number} budgetManwon - monthly budget in 만원
-   * @param {string} productId - 'kt' | 'sklg' | 'all3'
+   * @param {string} productId - 'all3'
    * @param {number} [termMonths] - contract length: 6 | 12 | 18 | 24 | 30 | 36 (default 6)
    */
   function calculateExposures(budgetManwon, productId, termMonths) {
@@ -111,11 +86,7 @@
     var exposures;
     var term = clampTermMonths(termMonths);
 
-    if (product.id === 'all3') {
-      exposures = exposuresAll3(won);
-    } else {
-      exposures = Math.floor(won / product.unitPrice);
-    }
+    exposures = exposuresAll3(won);
 
     return {
       budgetManwon: manwon,

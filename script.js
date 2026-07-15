@@ -387,7 +387,7 @@
 
   // ---------- Pricing budget calculator ----------
   if (typeof BudgetCalculator !== 'undefined') {
-    let calcProduct = 'kt';
+    let calcProduct = 'all3';
     let calcBudget = BudgetCalculator.DEFAULT_MANWON;
     let calcTerm = BudgetCalculator.DEFAULT_TERM_MONTHS;
     const calcSurcharge = {
