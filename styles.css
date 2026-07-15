@@ -4553,6 +4553,30 @@ body.nav-open {
   transition: opacity 0.35s ease;
 }
 
+.hero__player-host {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero__frame.is-playing .hero__player-host {
+  pointer-events: auto;
+}
+
+.hero__player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+.hero__frame.is-playing .hero__overlay,
+.hero__frame.is-playing .hero__chrome {
+  opacity: 0;
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -4690,6 +4714,15 @@ body.nav-open {
   text-decoration: none;
   width: 68px;
   height: 68px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.hero__play[hidden] {
+  display: none !important;
 }
 
 .hero__play-circle {

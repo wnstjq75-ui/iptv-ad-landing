@@ -172,6 +172,7 @@
     const heroMediaTitle = document.getElementById('heroMediaTitle');
     const heroMediaDesc = document.getElementById('heroMediaDesc');
     const heroMedia = document.getElementById('heroMedia');
+    const heroPlayerHost = document.getElementById('heroPlayerHost');
     const heroSlideIndex = document.getElementById('heroSlideIndex');
     const heroSlideTotal = document.getElementById('heroSlideTotal');
     const heroPrev = document.getElementById('heroPrev');
@@ -181,7 +182,31 @@
       heroSlideTotal.textContent = String(HeroCarousel.slideCount()).padStart(2, '0');
     }
 
+    function stopHeroVideo() {
+      if (heroPlayerHost) heroPlayerHost.replaceChildren();
+      if (heroMedia) heroMedia.classList.remove('is-playing');
+      if (heroPlay) heroPlay.hidden = false;
+    }
+
+    function playHeroVideo() {
+      if (!heroPlayerHost || !heroMedia) return;
+      const slide = HeroCarousel.getSlide(heroIndex);
+      const iframe = document.createElement('iframe');
+      iframe.className = 'hero__player';
+      iframe.src =
+        'https://www.youtube-nocookie.com/embed/' +
+        encodeURIComponent(slide.youtubeId) +
+        '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      iframe.title = slide.title + ' 영상 재생';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      heroPlayerHost.replaceChildren(iframe);
+      heroMedia.classList.add('is-playing');
+      if (heroPlay) heroPlay.hidden = true;
+    }
+
     function renderHeroSlide(index) {
+      stopHeroVideo();
       const n = HeroCarousel.slideCount();
       heroIndex = ((index % n) + n) % n;
       const slide = HeroCarousel.getSlide(heroIndex);
@@ -195,8 +220,7 @@
         };
       }
       if (heroPlay) {
-        heroPlay.href = slide.href;
-        heroPlay.setAttribute('aria-label', slide.title + ' YouTube에서 보기');
+        heroPlay.setAttribute('aria-label', slide.title + ' 영상 바로 재생');
       }
       if (heroMediaCategory) {
         heroMediaCategory.textContent = slide.category || '';
@@ -208,6 +232,10 @@
       if (heroSlideIndex) {
         heroSlideIndex.textContent = String(heroIndex + 1).padStart(2, '0');
       }
+    }
+
+    if (heroPlay) {
+      heroPlay.addEventListener('click', playHeroVideo);
     }
 
     if (heroPrev) {

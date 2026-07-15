@@ -13,6 +13,24 @@
 
   var SLIDES = [
     {
+      type: '제품',
+      title: '제품광고 미즈허브 비타민세럼',
+      desc: '뷰티 제품의 핵심 효능을 감각적으로 전달하는 AI TV CF',
+      youtubeId: 'fO7mEll3Leg',
+    },
+    {
+      type: '브랜드',
+      title: '브랜드광고 더브릿지',
+      desc: '브랜드 메시지를 선명하게 담은 스토리텔링 AI CF',
+      youtubeId: 'UVZOkBExinQ',
+    },
+    {
+      type: '브랜드',
+      title: '브랜드광고 감성주택',
+      desc: '공간과 라이프스타일의 감성을 담은 브랜드 CF',
+      youtubeId: 'vVRYGupRGNE',
+    },
+    {
       type: '브랜드',
       title: '브랜드광고 병원동행서비스',
       desc: '신뢰감 있는 서비스 브랜딩 AI TV CF',

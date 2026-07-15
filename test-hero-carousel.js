@@ -19,6 +19,9 @@ function assert(cond, msg) {
 }
 
 const requiredIds = [
+  'fO7mEll3Leg',
+  'UVZOkBExinQ',
+  'vVRYGupRGNE',
   'mi_ikAotG3c',
   'G2lDktSjURY',
   'HrUkB2OzNoM',
@@ -55,6 +58,11 @@ assert(html.indexOf('portfolioIndex') === -1, 'page index removed from portfolio
 assert(js.indexOf('buildPortfolioCards') !== -1, 'portfolio built from catalog');
 assert(js.indexOf('normalizePortfolioPos') !== -1, 'infinite loop normalize present');
 assert(js.indexOf('HeroCarousel.nextIndex') !== -1, 'hero uses nextIndex');
+assert(html.indexOf('id="heroPlayerHost"') !== -1, 'hero inline player host');
+assert(/<button[^>]*id="heroPlay"/.test(html), 'hero play is an in-page button');
+assert(js.indexOf('www.youtube-nocookie.com/embed/') !== -1, 'hero uses privacy-enhanced inline YouTube embed');
+assert(js.indexOf("heroPlay.addEventListener('click', playHeroVideo)") !== -1, 'hero play starts inline video');
+assert(js.indexOf('stopHeroVideo();') !== -1, 'slide change stops active video');
 assert(/src="hero-carousel\.js(\?[^"]*)?"/.test(html), 'loads hero-carousel.js');
 
 if (failed) {

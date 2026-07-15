@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260715-kobaco-proof-1">
+  <link rel="stylesheet" href="styles.css?v=20260715-inline-video-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,8 +218,9 @@
           aria-roledescription="carousel"
           aria-label="AI TV CF 프리미엄 쇼케이스"
         >
-          <div class="hero__visual" aria-hidden="true">
-            <img id="heroThumb" src="https://img.youtube.com/vi/mi_ikAotG3c/maxresdefault.jpg" alt="병원동행서비스 15초 TV광고 제작 사례" width="1280" height="720" fetchpriority="high">
+          <div class="hero__visual">
+            <img id="heroThumb" src="https://img.youtube.com/vi/fO7mEll3Leg/maxresdefault.jpg" alt="미즈허브 비타민세럼 15초 TV광고 제작 사례" width="1280" height="720" fetchpriority="high">
+            <div class="hero__player-host" id="heroPlayerHost"></div>
             <div class="hero__overlay"></div>
           </div>
 
@@ -239,18 +240,18 @@
             <svg class="hero__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
           </button>
 
-          <a class="hero__play" id="heroPlay" href="https://www.youtube.com/watch?v=mi_ikAotG3c" target="_blank" rel="noopener noreferrer" aria-label="예시 영상 YouTube에서 보기">
+          <button type="button" class="hero__play" id="heroPlay" aria-label="미즈허브 비타민세럼 영상 바로 재생">
             <span class="hero__play-circle" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
             </span>
-          </a>
+          </button>
         </div>
 
         <aside class="hero__hud hero__hud--right" aria-live="polite">
-          <p class="hero__media-category" id="heroMediaCategory">브랜드광고</p>
-          <p class="hero__media-title" id="heroMediaTitle">병원동행서비스</p>
-          <p class="hero__media-desc" id="heroMediaDesc">신뢰감 있는 서비스 브랜딩 AI TV CF</p>
-          <p class="hero__hud-index"><span id="heroSlideIndex">01</span> / <span id="heroSlideTotal">13</span></p>
+          <p class="hero__media-category" id="heroMediaCategory">제품광고</p>
+          <p class="hero__media-title" id="heroMediaTitle">미즈허브 비타민세럼</p>
+          <p class="hero__media-desc" id="heroMediaDesc">뷰티 제품의 핵심 효능을 감각적으로 전달하는 AI TV CF</p>
+          <p class="hero__hud-index"><span id="heroSlideIndex">01</span> / <span id="heroSlideTotal">16</span></p>
         </aside>
       </div>
 
@@ -1466,8 +1467,8 @@
     </div>
   </footer>
 
-  <script src="hero-carousel.js?v=20260710-seo1" defer></script>
+  <script src="hero-carousel.js?v=20260715-inline-video-1" defer></script>
   <script src="budget-calculator.js?v=20260715-budget-ticks-2" defer></script>
-  <script src="script.js?v=20260715-budget-ticks-2" defer></script>
+  <script src="script.js?v=20260715-inline-video-1" defer></script>
 </body>
 </html>
