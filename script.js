@@ -750,11 +750,11 @@
     };
 
     const buildInquiryMailto = (payload) => {
-      const excludedKeys = new Set(['_subject', '_template', '_captcha', '_url', '_honey']);
+      const excludedKeys = new Set(['access_key', 'subject', 'from_name', 'botcheck']);
       const lines = Object.entries(payload)
         .filter(([key]) => !excludedKeys.has(key))
         .map(([key, value]) => `${key}: ${value || '-'}`);
-      const subject = payload._subject || '[IPTV 광고 상담] 홈페이지 신규 문의';
+      const subject = payload.subject || '[IPTV 광고 상담] 홈페이지 신규 문의';
       return `mailto:mkt@openxgroup.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
     };
 
@@ -781,7 +781,7 @@
             signal: controller.signal
           });
           const result = await response.json().catch(() => ({}));
-          if (!response.ok || (result.success !== undefined && result.success !== true && result.success !== 'true')) {
+          if (!response.ok || result.success !== true) {
             throw new Error(result.message || `전송 서버 오류 (${response.status})`);
           }
           return result;

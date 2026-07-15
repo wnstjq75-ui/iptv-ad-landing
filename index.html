@@ -1307,23 +1307,22 @@
       <form
         class="inquiry-form"
         id="inquiryForm"
-        action="https://formsubmit.co/ajax/mkt@openxgroup.co.kr"
+        action="https://api.web3forms.com/submit"
         method="POST"
       >
-        <input type="hidden" name="_subject" value="[IPTV 광고 상담] 홈페이지 신규 문의">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_url" value="https://wnstjq75-ui.github.io/#contact">
-        <input class="inquiry-form__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="access_key" value="ad296e91-b04f-49ac-80f4-175036e24fa7">
+        <input type="hidden" name="subject" value="[IPTV 광고 상담] 홈페이지 신규 문의">
+        <input type="hidden" name="from_name" value="오픈엑스 IPTV 광고 상담">
+        <input class="inquiry-form__honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="inquiry-wizard__topbar">
           <button class="inquiry-wizard__back" id="inquiryPrev" type="button" aria-label="이전 단계로 이동" hidden>
             <span aria-hidden="true">←</span> 이전
           </button>
-          <div class="inquiry-wizard__progress" id="inquiryProgress" role="progressbar" aria-label="상담 신청 진행률" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+          <div class="inquiry-wizard__progress" id="inquiryProgress" role="progressbar" aria-label="상담 신청 진행률" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
             <span id="inquiryProgressFill"></span>
           </div>
-          <span class="inquiry-wizard__count" id="inquiryStepCount">01 / 02</span>
+          <span class="inquiry-wizard__count" id="inquiryStepCount">01 / 03</span>
         </div>
 
         <section class="inquiry-wizard__step" data-inquiry-step="0" aria-labelledby="inquiryStepTitle1">
@@ -1403,6 +1402,18 @@
             </label>
           </div>
 
+        </section>
+
+        <section class="inquiry-wizard__step" data-inquiry-step="2" aria-labelledby="inquiryStepTitle3" hidden>
+          <p class="inquiry-wizard__eyebrow">ADDITIONAL REQUEST</p>
+          <h3 id="inquiryStepTitle3">추가로 궁금하신 내용을 적어주세요</h3>
+          <p class="inquiry-wizard__desc">광고 목표나 요청사항을 자유롭게 남겨주시면 상담에 반영하겠습니다.</p>
+
+          <label class="inquiry-field inquiry-field--message">
+            <span>기타 문의사항 <em>선택</em></span>
+            <textarea name="기타 문의사항" rows="7" placeholder="예: 신규 매장 오픈 일정에 맞춘 지역 광고와 예상 노출량이 궁금합니다."></textarea>
+          </label>
+
           <div class="inquiry-consent">
             <label>
               <input type="checkbox" name="개인정보 수집 및 이용 동의" value="동의" required>
@@ -1410,7 +1421,7 @@
             </label>
             <details>
               <summary>내용 보기</summary>
-              <p>수집 항목: 기업명, 담당자명, 휴대폰 번호, 이메일 및 직접 입력한 문의 정보<br>이용 목적: IPTV 광고 상담, 견적 안내 및 문의 응대<br>보유 기간: 문의 처리 완료 후 1년(관계 법령에 따라 보존이 필요한 경우 해당 기간)<br>전송 처리: 입력 정보는 이메일 전달을 위해 FormSubmit 서비스를 통해 처리됩니다.</p>
+              <p>수집 항목: 기업명, 담당자명, 휴대폰 번호, 이메일 및 직접 입력한 문의 정보<br>이용 목적: IPTV 광고 상담, 견적 안내 및 문의 응대<br>보유 기간: 문의 처리 완료 후 1년(관계 법령에 따라 보존이 필요한 경우 해당 기간)<br>전송 처리: 입력 정보는 이메일 전달을 위해 Web3Forms 서비스를 통해 처리되며, 전송 내역은 해당 서비스 정책에 따라 최대 30일 보관될 수 있습니다.</p>
             </details>
           </div>
         </section>
@@ -1451,6 +1462,6 @@
 
   <script src="hero-carousel.js?v=20260710-seo1" defer></script>
   <script src="budget-calculator.js?v=20260710-seo1" defer></script>
-  <script src="script.js?v=20260715-inquiry-resilient1" defer></script>
+  <script src="script.js?v=20260715-web3forms1" defer></script>
 </body>
 </html>
