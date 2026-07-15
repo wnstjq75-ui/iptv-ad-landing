@@ -19,7 +19,8 @@ function assert(condition, message) {
 const form = (html.match(/<form[\s\S]*?id="inquiryForm"[\s\S]*?<\/form>/) || [''])[0];
 
 assert(form.length > 0, 'inquiry form exists');
-assert(/formsubmit\.co\/ajax\/mkt@openxgroup\.co\.kr/.test(form), 'email delivery endpoint');
+assert(/formsubmit\.co\/mkt@openxgroup\.co\.kr/.test(form), 'direct email delivery endpoint');
+assert(/name="_next" value="https:\/\/wnstjq75-ui\.github\.io\/\?submitted=1#contact"/.test(form), 'success redirect');
 assert(/name="기업명"/.test(form), 'company field');
 assert(/name="담당자명"/.test(form), 'contact name field');
 assert(/name="휴대폰 번호"/.test(form), 'phone field');
@@ -38,10 +39,11 @@ assert(/id="inquiryPrev"/.test(form) && /id="inquiryNext"/.test(form), 'previous
 assert(/role="progressbar"/.test(form) && /id="inquiryProgressFill"/.test(form), 'step progress indicator');
 assert(/id="inquirySubmit"/.test(form) && /상담 신청 제출하기/.test(form), 'final submit action');
 assert(/id="inquirySuccess"/.test(form), 'submission completion screen');
-assert(/new FormData\(inquiryForm\)/.test(js), 'form payload handling');
-assert(/formData\.set\('월 예산', `\$\{monthlyBudget\.value\}만원`\)/.test(js), 'monthly budget email formatting');
+assert(/addSubmissionValue/.test(js), 'form payload handling');
+assert(/addSubmissionValue\('월 예산', `\$\{monthlyBudget\.value\}만원`\)/.test(js), 'monthly budget email formatting');
 assert(/checkedTargeting/.test(js) && /checkedTargeting\.map/.test(js), 'multiple targeting values are joined');
-assert(/fetch\(inquiryForm\.action/.test(js), 'AJAX submission');
+assert(/inquiryForm\.submit\(\)/.test(js) && !/fetch\(inquiryForm\.action/.test(js), 'direct form submission');
+assert(/URLSearchParams/.test(js) && /showInquirySuccess/.test(js), 'success screen after redirect');
 assert(/renderInquiryStep/.test(js) && /validateInquiryStep/.test(js), 'step navigation and validation');
 assert(/#inquiryNext\[hidden\][\s\S]*#inquirySubmit\[hidden\][\s\S]*display:\s*none\s*!important/.test(css), 'only the active step action is visible');
 assert(/inquirySuccess\.hidden = false/.test(js), 'success feedback');

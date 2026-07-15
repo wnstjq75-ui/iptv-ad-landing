@@ -708,6 +708,14 @@
   });
 
   if (inquiryForm && inquiryStatus) {
+    const showInquirySuccess = () => {
+      inquirySteps.forEach((step) => { step.hidden = true; });
+      if (inquiryTopbar) inquiryTopbar.hidden = true;
+      if (inquiryActions) inquiryActions.hidden = true;
+      inquiryStatus.textContent = '';
+      if (inquirySuccess) inquirySuccess.hidden = false;
+    };
+
     inquiryForm.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' || event.target.tagName === 'TEXTAREA') return;
       event.preventDefault();
@@ -718,7 +726,7 @@
       }
     });
 
-    inquiryForm.addEventListener('submit', async (event) => {
+    inquiryForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
       if (inquiryStep !== inquirySteps.length - 1) {
@@ -748,61 +756,42 @@
         return;
       }
 
-      const formData = new FormData(inquiryForm);
       const monthlyBudget = inquiryForm.querySelector('input[name="월 예산"]');
-      if (monthlyBudget?.value) {
-        formData.set('월 예산', `${monthlyBudget.value}만원`);
-      }
-      formData.delete('희망 매체');
-      formData.append('희망 매체', checkedMedia.map((input) => input.value).join(', '));
       const checkedTargeting = Array.from(
         inquiryForm.querySelectorAll('input[name="희망 타겟팅"]:checked')
       );
-      formData.delete('희망 타겟팅');
-      formData.append(
+
+      inquiryForm.querySelectorAll('[data-submission-value]').forEach((input) => input.remove());
+      const addSubmissionValue = (name, value) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        input.dataset.submissionValue = 'true';
+        inquiryForm.appendChild(input);
+      };
+
+      inquiryMediaInputs.forEach((input) => { input.disabled = true; });
+      inquiryForm.querySelectorAll('input[name="희망 타겟팅"]').forEach((input) => {
+        input.disabled = true;
+      });
+      if (monthlyBudget) monthlyBudget.disabled = true;
+
+      addSubmissionValue('희망 매체', checkedMedia.map((input) => input.value).join(', '));
+      addSubmissionValue(
         '희망 타겟팅',
         checkedTargeting.length
           ? checkedTargeting.map((input) => input.value).join(', ')
           : '선택 안 함'
       );
-      formData.append('접수 페이지', window.location.href);
+      addSubmissionValue('월 예산', `${monthlyBudget.value}만원`);
+      addSubmissionValue('접수 페이지', window.location.href);
 
       submitButton.disabled = true;
       inquiryForm.classList.add('is-submitting');
       inquiryStatus.textContent = '상담 신청을 전송하고 있습니다.';
       inquiryStatus.className = 'inquiry-form__status';
-
-      try {
-        const payload = Object.fromEntries(formData.entries());
-        const response = await fetch(inquiryForm.action, {
-          method: 'POST',
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          }
-        });
-
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || String(result.success).toLowerCase() === 'false') {
-          throw new Error('Request failed');
-        }
-
-        inquiryForm.reset();
-        const fallbackMedia = inquiryForm.querySelector('input[value="협의 필요"]');
-        if (fallbackMedia) fallbackMedia.checked = true;
-        inquirySteps.forEach((step) => { step.hidden = true; });
-        if (inquiryTopbar) inquiryTopbar.hidden = true;
-        if (inquiryActions) inquiryActions.hidden = true;
-        inquiryStatus.textContent = '';
-        inquirySuccess.hidden = false;
-      } catch (error) {
-        inquiryStatus.innerHTML = '전송 중 문제가 발생했습니다. <a href="mailto:mkt@openxgroup.co.kr">mkt@openxgroup.co.kr</a>로 문의해 주세요.';
-        inquiryStatus.className = 'inquiry-form__status inquiry-form__status--error';
-      } finally {
-        submitButton.disabled = false;
-        inquiryForm.classList.remove('is-submitting');
-      }
+      window.setTimeout(() => inquiryForm.submit(), 60);
     });
 
     inquiryRestart?.addEventListener('click', () => {
@@ -816,6 +805,23 @@
       renderInquiryStep(true);
     });
 
-    renderInquiryStep();
+    const submitted = new URLSearchParams(window.location.search).get('submitted') === '1';
+    if (submitted) {
+      showInquirySuccess();
+      window.history.replaceState(null, '', `${window.location.pathname}#contact`);
+    } else {
+      renderInquiryStep();
+    }
+
+    window.addEventListener('pageshow', () => {
+      inquiryMediaInputs.forEach((input) => { input.disabled = false; });
+      inquiryForm.querySelectorAll('input[name="희망 타겟팅"]').forEach((input) => {
+        input.disabled = false;
+      });
+      const monthlyBudget = inquiryForm.querySelector('input[name="월 예산"]');
+      if (monthlyBudget) monthlyBudget.disabled = false;
+      if (inquirySubmit) inquirySubmit.disabled = false;
+      inquiryForm.classList.remove('is-submitting');
+    });
   }
 })();
