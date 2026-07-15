@@ -16818,3 +16818,7 @@ body {
   white-space: nowrap !important;
   font-size: clamp(0.68rem, 2.3vw, 0.78rem) !important;
 }
+
+#targeting .targeting-features--audience .targeting-feature:last-child {
+  grid-column: 1 / -1;
+}

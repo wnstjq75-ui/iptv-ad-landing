@@ -47,6 +47,10 @@ assert(/data-tab="channel">채널<\/button>/.test(section), 'short channel tab l
 assert(section.indexOf('데이터 조건') === -1, 'old data condition tab removed');
 assert(section.indexOf('검증 및 리포트') === -1, 'old report tab removed');
 assert(section.indexOf('data-panel="audience"') !== -1, 'audience targeting panel');
+assert(section.indexOf('라이프스타일') !== -1, 'audience lifestyle group');
+assert(section.indexOf('세대') !== -1, 'audience generation group');
+assert(section.indexOf('트렌드') !== -1, 'audience trend group');
+assert(section.indexOf('targeting-features--audience') !== -1, 'three audience group cards');
 assert(section.indexOf('data-panel="time"') !== -1, 'time targeting panel');
 assert(section.indexOf('data-panel="channel"') !== -1, 'channel targeting panel');
 assert(css.indexOf('var(--targeting-geo-height') !== -1, 'targeting visuals inherit first GEO panel height');
