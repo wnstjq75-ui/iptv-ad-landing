@@ -16740,7 +16740,22 @@ body {
 }
 
 .inquiry-wizard__fields--campaign {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.inquiry-choice--targeting {
+  margin: 0 0 16px;
+}
+
+.inquiry-choice--targeting .inquiry-choice__grid--targeting {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.inquiry-choice--targeting .inquiry-choice__grid--targeting span {
+  min-height: 43px;
+  padding: 7px 5px;
+  font-size: 0.74rem;
 }
 
 .inquiry-wizard__choices--stacked {

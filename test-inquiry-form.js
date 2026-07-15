@@ -26,7 +26,8 @@ assert(/name="휴대폰 번호"/.test(form), 'phone field');
 assert(/name="email"/.test(form), 'email field');
 assert(/name="기업 홈페이지"/.test(form), 'website field');
 assert(/name="희망 지역"/.test(form), 'region field');
-assert(/name="희망 타겟팅"/.test(form), 'targeting field');
+assert((form.match(/name="희망 타겟팅"/g) || []).length === 3, 'three targeting choices');
+assert(/value="오디언스"/.test(form) && /value="채널"/.test(form) && /value="시간"/.test(form), 'audience channel time targeting');
 assert((form.match(/name="희망 매체"/g) || []).length === 4, 'media choices');
 assert((form.match(/name="광고 기간"/g) || []).length === 4, 'advertising period choices');
 assert(/name="월 예산"/.test(form), 'monthly budget choices');
@@ -38,6 +39,7 @@ assert(/role="progressbar"/.test(form) && /id="inquiryProgressFill"/.test(form),
 assert(/id="inquirySubmit"/.test(form) && /상담 신청 제출하기/.test(form), 'final submit action');
 assert(/id="inquirySuccess"/.test(form), 'submission completion screen');
 assert(/new FormData\(inquiryForm\)/.test(js), 'form payload handling');
+assert(/checkedTargeting/.test(js) && /checkedTargeting\.map/.test(js), 'multiple targeting values are joined');
 assert(/fetch\(inquiryForm\.action/.test(js), 'AJAX submission');
 assert(/renderInquiryStep/.test(js) && /validateInquiryStep/.test(js), 'step navigation and validation');
 assert(/#inquiryNext\[hidden\][\s\S]*#inquirySubmit\[hidden\][\s\S]*display:\s*none\s*!important/.test(css), 'only the active step action is visible');

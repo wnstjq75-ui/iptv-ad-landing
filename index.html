@@ -1333,11 +1333,16 @@
               <span>희망 지역 <em>선택</em></span>
               <input type="text" name="희망 지역" placeholder="예: 서울 강남구, 경기 전체">
             </label>
-            <label class="inquiry-field">
-              <span>희망 타겟팅 <em>선택</em></span>
-              <input type="text" name="희망 타겟팅" placeholder="예: 30~50대, 자녀 관심, 평일 저녁">
-            </label>
           </div>
+
+          <fieldset class="inquiry-choice inquiry-choice--targeting">
+            <legend>희망 타겟팅 <span>중복 선택 가능</span></legend>
+            <div class="inquiry-choice__grid inquiry-choice__grid--targeting">
+              <label><input type="checkbox" name="희망 타겟팅" value="오디언스"><span>오디언스</span></label>
+              <label><input type="checkbox" name="희망 타겟팅" value="채널"><span>채널</span></label>
+              <label><input type="checkbox" name="희망 타겟팅" value="시간"><span>시간</span></label>
+            </div>
+          </fieldset>
 
           <div class="inquiry-wizard__choices inquiry-wizard__choices--stacked">
             <fieldset class="inquiry-choice" id="mediaChoices">
@@ -1411,6 +1416,6 @@
 
   <script src="hero-carousel.js?v=20260710-seo1" defer></script>
   <script src="budget-calculator.js?v=20260710-seo1" defer></script>
-  <script src="script.js?v=20260715-inquiry-wizard3" defer></script>
+  <script src="script.js?v=20260715-inquiry-wizard4" defer></script>
 </body>
 </html>

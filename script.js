@@ -751,6 +751,16 @@
       const formData = new FormData(inquiryForm);
       formData.delete('희망 매체');
       formData.append('희망 매체', checkedMedia.map((input) => input.value).join(', '));
+      const checkedTargeting = Array.from(
+        inquiryForm.querySelectorAll('input[name="희망 타겟팅"]:checked')
+      );
+      formData.delete('희망 타겟팅');
+      formData.append(
+        '희망 타겟팅',
+        checkedTargeting.length
+          ? checkedTargeting.map((input) => input.value).join(', ')
+          : '선택 안 함'
+      );
       formData.append('접수 페이지', window.location.href);
 
       submitButton.disabled = true;
