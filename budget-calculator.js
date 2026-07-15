@@ -20,7 +20,7 @@
       unitPrice: null,
       unitLabel: '100만원당 월 18만회',
       minManwon: 100,
-      bonus: 'KT · SKT · LGU+ 동시 송출로 폭넓은 커버리지 제공',
+      bonus: 'IPTV 3사 동시 송출로 폭넓은 커버리지 제공',
     },
   };
 

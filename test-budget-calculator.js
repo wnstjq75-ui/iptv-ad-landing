@@ -60,6 +60,7 @@ assert(html.indexOf('100만원부터') !== -1 || html.indexOf('월 100만원부�
 assert(html.indexOf('예상 완전시청 노출') !== -1 || html.indexOf('예상 노출') !== -1, 'disclaimer monthly');
 assert(html.indexOf('6개월 단위') !== -1, 'disclaimer 6-month');
 assert(Calc.PRODUCTS.all3.bonus.indexOf('동시 송출') !== -1, '3사 integrated benefit copy');
+assert(Calc.PRODUCTS.all3.bonus === 'IPTV 3사 동시 송출로 폭넓은 커버리지 제공', 'compact one-line benefit copy');
 assert(/src="budget-calculator\.js(\?[^"]*)?"/.test(html), 'loads math module');
 assert(js.indexOf('BudgetCalculator.calculateExposures') !== -1, 'script uses real math');
 
