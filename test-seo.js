@@ -75,7 +75,7 @@ ok('h1 exact copy', stripTags(h1s[0]) === H1);
 ok('hero description', /AI CF 무상제작부터 IPTV 맞춤 송출,\s*시청 리포트까지 한 번에/.test(html));
 ok('TV advertising definition',
   /<h2 class="section__title">TV광고란\?<\/h2>/.test(html) &&
-  /TV 화면에 브랜드·제품 영상을 송출해 인지도와 신뢰를 높이는 영상 광고입니다\./.test(html)
+  /방송 프로그램과 프로그램 사이의 광고 시간에 브랜드·제품 영상을 송출해 인지도와 신뢰를 높이는 영상 광고입니다\./.test(html)
 );
 
 // FAQ visible HTML
